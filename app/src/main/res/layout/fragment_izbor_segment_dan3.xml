@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/parent"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/txtTextPitanja"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Kliknite na dugme koje treperi da bi ste nastavli gejmifikaciju"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true" />
+
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnLogistika"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:text="Logistika"
+    android:layout_alignParentLeft="true"
+    android:layout_centerInParent="true"
+    android:gravity="left|center_vertical"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:textSize="15sp"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnVeleprodaja"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:text="Veleprodaja"
+    android:textSize="15sp"
+    android:gravity="left|center_vertical"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:layout_centerInParent="true"
+    android:layout_toRightOf="@+id/btnLogistika"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnZmaj"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:gravity="left|center_vertical"
+    android:textSize="15sp"
+    android:text="VP iz&#10;MP Zmaj"
+    android:layout_centerInParent="true"
+    android:layout_toRightOf="@+id/btnVeleprodaja"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnVelpro"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:gravity="left|center_vertical"
+    android:textSize="15sp"
+    android:text="VELPRO 901"
+    android:layout_centerInParent="true"
+    android:layout_toRightOf="@+id/btnZmaj"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnLondon"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:gravity="left|center_vertical"
+    android:textSize="15sp"
+    android:layout_centerInParent="true"
+    android:layout_toRightOf="@+id/btnVelpro"
+    android:text="Idea London"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnBeogradjanka"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:gravity="left|center_vertical"
+    android:textSize="15sp"
+    android:layout_centerInParent="true"
+    android:layout_toRightOf="@+id/btnLondon"
+    android:text="Idea&#10;Beograđanka"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnEvaluacija"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:gravity="left|center_vertical"
+    android:textSize="15sp"
+    android:layout_centerInParent="true"
+    android:layout_toRightOf="@+id/btnBeogradjanka"
+    android:text="Evaluacija&#10;programa"
+    android:textAppearance="?textAppearanceHeadline1"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
+    app:backgroundTint="@color/red" />
+
+
+
+</RelativeLayout>

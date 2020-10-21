@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".FirstFragment">
+
+    <ImageView
+        android:id="@+id/imgDay"
+        android:layout_width="110dp"
+        android:layout_height="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/dan_1" />
+
+    <TextView
+        android:id="@+id/txtTextPitanja"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/imgDay"
+        android:layout_alignParentTop= "true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="TextPitanja" />
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imgDay"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:text=" Prihodi od prodaje robe" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt1"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:text=" -Nabavna vrednost prodate robe (COGS)" />
+
+    <TextView
+        android:id="@+id/txtPut1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt2"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtPut1"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:text=" -Operativni troskovi" />
+
+    <TextView
+        android:id="@+id/txtPut2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt3"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtPut3"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/txtPut2"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtPut3"
+        android:text=" EBIT" />
+
+    <TextView
+        android:id="@+id/txtEbitda"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@+id/txt2"
+        android:layout_below="@+id/txt2"
+        android:text=" EBITDA" />
+
+    <TextView
+        android:id="@+id/txtAmortizacija"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@+id/txt3"
+        android:layout_below="@+id/txt3"
+        android:text=" AMORTIZACIJA" />
+
+    <TextView
+        android:id="@+id/txtBrutoMarza"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/my_border"
+        android:gravity="left|center"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@+id/txtPut3"
+        android:layout_below="@+id/txtPut3"
+        android:text=" BRUTO MARŽA" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/next" />
+
+
+    />
+
+</RelativeLayout>

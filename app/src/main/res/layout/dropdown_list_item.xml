@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="13dp"
+    android:paddingTop="13dp">
+
+    <ImageView
+        android:id="@+id/radio_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:src="@drawable/ic_radio_normal" />
+
+    <CheckedTextView
+        android:id="@+id/option_text"
+        style="?android:attr/spinnerDropDownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/radio_button"
+        android:layout_toRightOf="@id/radio_button"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/Black"
+        android:textSize="20sp" />
+
+</RelativeLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".OrganiyacioneSemeNavigacioniBarFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="100dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnFinansije"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Finansije" />
+
+        <Button
+            android:id="@+id/btnInvesticije"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Investicije razvoj i kontrola poslovnih procesa" />
+
+        <Button
+            android:id="@+id/btnLjResursi"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Ljudski resursi" />
+
+        <Button
+            android:id="@+id/btnLogistika"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Logistika" />
+
+        <Button
+            android:id="@+id/btnMakro"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Makro šema" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="300dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnMaloprodaja"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Maloprodaja" />
+
+        <Button
+            android:id="@+id/btnMarketing"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Marketing" />
+
+        <Button
+            android:id="@+id/btnOperacije"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Operacije" />
+
+        <Button
+            android:id="@+id/btnTreding"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Treding i CM" />
+
+        <Button
+            android:id="@+id/btnVeleprodaja"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Veleprodaja" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

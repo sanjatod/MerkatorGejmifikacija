@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SecondFragment">
+
+    <ImageView
+        android:id="@+id/imgDay"
+        android:layout_width="110dp"
+        android:layout_height="105dp"
+        android:src="@drawable/dan_treci" />
+
+
+
+
+        <TextView
+            android:id="@+id/txtTextPitanja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/imgDay"
+            android:text="TextPitanja" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="705dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/txtTextPitanja"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imgDay"
+        android:src="@drawable/dan_1" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:id="@+id/linear"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="6" />
+        </LinearLayout>
+
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/next" />
+    />
+</RelativeLayout>

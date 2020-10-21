@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".FirstFragment">
+
+    <ImageView
+        android:id="@+id/imgDay"
+        android:layout_width="110dp"
+        android:layout_height="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/dan_1" />
+
+
+
+        <TextView
+            android:id="@+id/txtTextPitanja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/imgDay"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="TextPitanja" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/txtTextPitanja"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/imgDay"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/linear"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/imgDay"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/next"
+        android:layout_margin="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

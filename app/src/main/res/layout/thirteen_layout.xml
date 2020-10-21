@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="730dp"
+        android:id="@+id/firstParent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button23"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:text="Sektor računovotstva" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba za likvidaturu" />
+
+        <Button
+            android:id="@+id/button26"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba za salda konta" />
+
+        <Button
+            android:id="@+id/button27"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba za troškove i osnovna sredstva" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/secondParent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button28"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba glavne knjige" />
+
+        <Button
+            android:id="@+id/button29"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Zamena" />
+
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="100dp"
+            android:text="Služba za koordinaciju skladišta" />
+
+        <Button
+            android:id="@+id/btn11"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba kompenyacija" />
+
+        <Button
+            android:id="@+id/btn12"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba za knjigovodstvo" />
+
+        <Button
+            android:id="@+id/btn13"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba help-deska" />
+
+        <Button
+            android:id="@+id/btn14"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="20dp"
+            android:text="Služba za obračun poreza i poreski" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/next" />
+    </LinearLayout>
+
+
+</LinearLayout>

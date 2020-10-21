@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:showInd="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/kodeks"
+            android:title="Kodeks" />
+
+        <item
+            android:id="@+id/mapa_progresa"
+            android:title="Mapa progresa" />
+
+        <item
+            android:id="@+id/oseme"
+            android:title="Organizacione šeme" />
+
+        <item
+            android:id="@+id/korisniLinkovi"
+            android:title="Korisni linkovi" />
+
+        <item
+            android:id="@+id/odjava"
+            android:title="Odjavi me" />
+
+        <item
+            android:id="@+id/Verzija"
+            android:title="Verzija 1.1" />
+    </group>
+
+</menu>
