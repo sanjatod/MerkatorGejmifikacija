@@ -7,13 +7,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -95,14 +98,37 @@ public class NoviKorisnikActivity extends AppCompatActivity {
 
                 try
                 {
-                    dbHelper.ClineDb();
+                   // dbHelper.ClineDb();
 
                     dbHelper.openDataBase();
                     dbHelper.myDataBase.beginTransaction();
+
+
+
+                    dbHelper.myDataBase.delete("Korisnik", "Administrator=0", null);
+                    dbHelper.myDataBase.execSQL("delete from AkcijaDan");
+                    dbHelper.myDataBase.execSQL("delete from AkcijaSegment");
+                    dbHelper.myDataBase.execSQL("delete from Kodeks");
+                    ContentValues iuValues1 = new ContentValues();
+                    iuValues1.put("Odgovoreno", 0);
+                    dbHelper.myDataBase.updateWithOnConflict("Dan1", iuValues1, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                    dbHelper.myDataBase.updateWithOnConflict("Dan2", iuValues1, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                    dbHelper.myDataBase.updateWithOnConflict("Dan3", iuValues1, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                    dbHelper.myDataBase.updateWithOnConflict("Evaluacija", iuValues1, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
+
+                    BaseActivity.dan=0;
+                    BaseActivity.segment=0;
+                    BaseActivity.puzzle=false;
+                    BaseActivity.puzzleBlue=false;
+                    BaseActivity.puzzleGren=false;
+                    BaseActivity.continueArray=false;
+                    BaseActivity.proc=false;
+                    BaseActivity.evaluacija=false;
+                    BaseActivity.evaluacijastep=0;
+                    BaseActivity.firistTime=false;
+
+
                     ContentValues iuValues = new ContentValues();
-
-                   // dbHelper.myDataBase.delete("Korisnik", "Administrator=0",null);
-
                     iuValues.put("ID", 2);
                     iuValues.put("KorisnickoIme", etxKorisnickoIme.getText().toString().trim());
                     iuValues.put("Lozinka", etxtLozinka.getText().toString().trim());

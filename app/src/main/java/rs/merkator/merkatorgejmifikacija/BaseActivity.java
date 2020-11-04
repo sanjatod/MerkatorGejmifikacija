@@ -685,36 +685,35 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             break;
                         case 3:
 
-                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSlužba regrutacije i selekcije");
-                            new AlertDialog.Builder(mContext)
-                                    // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                                    .setView(dialogView1)
-                                    .setCancelable(false)
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int whichButton) {
-                                            dialog.dismiss();
-                                            ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
+                                txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSlužba regrutacije i selekcije");
+                                new AlertDialog.Builder(mContext)
+                                        // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                        .setView(dialogView1)
+                                        .setCancelable(false)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                dialog.dismiss();
+                                                ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
 
-                                            ZatvoriSegmentDan1();
-                                            fragment = fm.findFragmentByTag("PrviFragment");
-                                            if (fragment == null) {
-                                                fm = getSupportFragmentManager();
-                                                FragmentTransaction ft = fm.beginTransaction();
-                                                fragment = new PersonnelRecordsFragment();
-                                                ft.addToBackStack(null);
-                                                ft.replace(R.id.fragment_frame, fragment);
-                                                ft.commit();
-                                                return;
+                                                ZatvoriSegmentDan1();
+                                                fragment = fm.findFragmentByTag("PrviFragment");
+                                                if (fragment == null) {
+                                                    fm = getSupportFragmentManager();
+                                                    FragmentTransaction ft = fm.beginTransaction();
+                                                    fragment = new PersonnelRecordsFragment();
+                                                    ft.addToBackStack(null);
+                                                    ft.replace(R.id.fragment_frame, fragment);
+                                                    ft.commit();
+                                                    return;
+
+                                                }
+
 
                                             }
+                                        })
 
+                                        .show();
 
-
-
-                                        }
-                                    })
-
-                                    .show();
 
                             break;
 

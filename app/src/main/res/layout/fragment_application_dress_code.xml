@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
         android:layout_height="wrap_content"
-        android:text="Povežite pojmove sa odgovarajućom slikom, postavite ispravan redosled pojmova " />
+        android:text="Povežite pojmove sa odgovarajućom slikom. Prevlačenjem polja ispod slike, levo ili desno, postavite pravilan redosled." />
 
     <FrameLayout
         android:id="@+id/fragment_frame"

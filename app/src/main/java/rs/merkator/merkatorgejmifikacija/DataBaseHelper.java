@@ -267,9 +267,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             myDataBase.updateWithOnConflict("Dan2", iuValues, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
             myDataBase.updateWithOnConflict("Dan3", iuValues, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
             myDataBase.updateWithOnConflict("Evaluacija", iuValues, null, null, SQLiteDatabase.CONFLICT_ROLLBACK);
-            myDataBase.delete("AkcijaDan", null, null);
-            myDataBase.delete("AkcijaSegment", null, null);
-            myDataBase.delete("Kodeks", null, null);
+            myDataBase.execSQL("delete from AkcijaDan");
+            myDataBase.execSQL("delete from AkcijaSegment");
+            myDataBase.execSQL("delete from Kodeks");
+           // myDataBase.delete("AkcijaDan", "1=1", null);
+           // myDataBase.delete("AkcijaSegment", "1=1", null);
+           // myDataBase.delete("Kodeks", "1=1", null);
             myDataBase.setTransactionSuccessful();
         }
         catch (Exception ex)

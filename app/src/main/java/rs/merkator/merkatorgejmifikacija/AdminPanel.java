@@ -268,6 +268,7 @@ public class AdminPanel extends AppCompatActivity {
                 });
 
 
+                //eksport
 //                String directory_path = Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/Import";
 //                File file = new File(directory_path);
 //                if (!file.exists()) {
@@ -340,6 +341,17 @@ public class AdminPanel extends AppCompatActivity {
                                             .setTitle("Uspešno importovani podaci")
                                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int whichButton) {
+
+                                                    BaseActivity.dan=0;
+                                                    BaseActivity.segment=0;
+                                                    BaseActivity.puzzle=false;
+                                                    BaseActivity.puzzleBlue=false;
+                                                    BaseActivity.puzzleGren=false;
+                                                    BaseActivity.continueArray=false;
+                                                    BaseActivity.proc=false;
+                                                    BaseActivity.evaluacija=false;
+                                                    BaseActivity.evaluacijastep=0;
+                                                    BaseActivity.firistTime=false;
 
                                                     dialog.dismiss();
                                                 }

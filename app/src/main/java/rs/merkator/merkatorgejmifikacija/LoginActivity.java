@@ -304,7 +304,7 @@ public class LoginActivity extends AppCompatActivity {
 
             try {
 
-                dbHelper=new DataBaseHelper(mContext);
+                //dbHelper=new DataBaseHelper(mContext);
                 String directory_path = Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/Import/Merkator.xls";
                 File file = new File(directory_path);
                 if (!file.exists()) {
