@@ -205,7 +205,7 @@ public class FirstFragment extends Fragment {
                     }
                 }
 
-
+              //res=true;
                     if (res)
                     {
 

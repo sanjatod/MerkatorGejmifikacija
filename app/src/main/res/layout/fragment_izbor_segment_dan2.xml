@@ -17,11 +17,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTradingManagment"
-        android:layout_width="130dp"
+        android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="50dp"
         android:text="Trading i category &#10;management"
         android:layout_alignParentLeft="true"
         android:layout_centerInParent="true"
@@ -34,7 +34,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMaloprodaja"
-        android:layout_width="130dp"
+        android:layout_width="160dp"
         android:layout_height="140dp"
         android:text="Maloprodaja"
         android:textSize="15sp"
@@ -48,7 +48,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSluzbaMarketing"
-        android:layout_width="130dp"
+        android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
@@ -66,7 +66,7 @@
         android:id="@+id/btnSluzbaInvesticijeRazvoj"
         android:text="Područje investicija, razvoja i kontrole poslovnih procesa"
         android:layout_toRightOf="@+id/btnSluzbaMarketing"
-        android:layout_width="130dp"
+        android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
@@ -82,7 +82,7 @@
         android:id="@+id/btnPodrucjeFinansija"
         android:layout_toRightOf="@+id/btnSluzbaInvesticijeRazvoj"
         android:text="Područje finansija"
-        android:layout_width="130dp"
+        android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
@@ -94,37 +94,7 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
         app:backgroundTint="@color/red" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnPodrucjeIT"
-        android:layout_width="130dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:gravity="left|center_vertical"
-        android:textSize="15sp"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@+id/btnPodrucjeFinansija"
-        android:text="Sektor za poslovne aplikacije &#10;i Sektor ICT&#10;i operativnog poslovanja"
-        android:textAppearance="?textAppearanceHeadline1"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
-        app:backgroundTint="@color/red" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnPodrucjePravnihPoslova"
-        android:layout_width="130dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:gravity="left|center_vertical"
-        android:textSize="15sp"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@+id/btnPodrucjeIT"
-        android:text="Sektor pravnih&#10;poslova"
-        android:textAppearance="?textAppearanceHeadline1"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
-        app:backgroundTint="@color/red" />
 
 
 

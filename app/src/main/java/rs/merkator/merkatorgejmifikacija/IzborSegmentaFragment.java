@@ -24,9 +24,9 @@ import java.util.Date;
 
 public class IzborSegmentaFragment extends Fragment {
 
-    Button btnIdeAkademija, btnOpsteInformacije, btnHipermarket,btnRodaMega, btnSluzbaKadrovske,btnSluzbaRegistracije;
-    Button btnTradingManagment, btnMaloprodaja, btnSluzbaMarketing,btnSluzbaInvesticijeRazvoj, btnPodrucjeFinansija, btnSektorIT, btnSektorPoslovnihProcesa;
-    Button btnLogistika, btnVeleprodaja, btnZmaj,btnVelpro, btnLondon, btnBeogradjanka,btnEvaluacija;
+    Button btnIdeAkademija, btnOpsteInformacije, btnHipermarket,btnRodaMega, btnSluzbaKadrovske,btnSluzbaRegistracije, btnHR;
+    Button btnTradingManagment, btnMaloprodaja, btnSluzbaMarketing,btnSluzbaInvesticijeRazvoj, btnPodrucjeFinansija;
+    Button btnLogistika, btnVeleprodaja, btnZmaj, btnLondon, btnBeogradjanka,btnEvaluacija, btnSektorIT, btnSektorPoslovnihProcesa;
     DataBaseHelper dbHelper;
     private int dan;
     private int segment;
@@ -79,6 +79,9 @@ public class IzborSegmentaFragment extends Fragment {
             btnSluzbaRegistracije = view.findViewById(R.id.btnSluzbaRegistracije);
             btnSluzbaRegistracije.setClickable(false);
             btnSluzbaRegistracije.setEnabled(false);
+            btnHR=view.findViewById(R.id.btnSektorHR);
+            btnHR.setClickable(false);
+            btnHR.setEnabled(false);
 
             Animation anim = new AlphaAnimation(0.0f, 1.0f);
             anim.setDuration(100); //You can manage the blinking time with this parameter
@@ -149,6 +152,19 @@ public class IzborSegmentaFragment extends Fragment {
                         break;
 
                     case 4:
+                        btnHR.setClickable(true);
+                        btnHR.setEnabled(true);
+                        btnHR.startAnimation(anim);
+                        CustomButtonDay1(btnOpsteInformacije);
+                        CustomButtonDay1(btnIdeAkademija);
+                        CustomButtonDay1(btnSluzbaRegistracije);
+                        CustomButtonDay1(btnSluzbaKadrovske);
+                        CustomButtonDay1(btnHR);
+                        btnHR.requestFocus();
+
+                        break;
+
+                    case 5:
                         btnRodaMega.setClickable(true);
                         btnRodaMega.setEnabled(true);
                         btnRodaMega.startAnimation(anim);
@@ -156,12 +172,13 @@ public class IzborSegmentaFragment extends Fragment {
                         CustomButtonDay1(btnIdeAkademija);
                         CustomButtonDay1(btnSluzbaRegistracije);
                         CustomButtonDay1(btnSluzbaKadrovske);
+                        CustomButtonDay1(btnHR);
                         CustomButtonDay1(btnRodaMega);
                         btnRodaMega.requestFocus();
 
                         break;
 
-                    case 5:
+                    case 6:
                         btnHipermarket.setClickable(true);
                         btnHipermarket.setEnabled(true);
                         btnHipermarket.startAnimation(anim);
@@ -169,6 +186,7 @@ public class IzborSegmentaFragment extends Fragment {
                         CustomButtonDay1(btnIdeAkademija);
                         CustomButtonDay1(btnSluzbaRegistracije);
                         CustomButtonDay1(btnSluzbaKadrovske);
+                        CustomButtonDay1(btnHR);
                         CustomButtonDay1(btnRodaMega);
                         CustomButtonDay1(btnHipermarket);
                         btnHipermarket.requestFocus();
@@ -212,6 +230,14 @@ public class IzborSegmentaFragment extends Fragment {
                     OpenFragment();
                 }
             });
+
+            btnHR.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    OpenFragment();
+                }
+            });
             btnRodaMega.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -244,12 +270,12 @@ public class IzborSegmentaFragment extends Fragment {
             btnPodrucjeFinansija = view.findViewById(R.id.btnPodrucjeFinansija);
             btnPodrucjeFinansija.setClickable(false);
             btnPodrucjeFinansija.setEnabled(false);
-            btnSektorIT = view.findViewById(R.id.btnPodrucjeIT);
-            btnSektorIT.setClickable(false);
-            btnSektorIT.setEnabled(false);
-            btnSektorPoslovnihProcesa = view.findViewById(R.id.btnPodrucjePravnihPoslova);
-            btnSektorPoslovnihProcesa.setClickable(false);
-            btnSektorPoslovnihProcesa.setEnabled(false);
+//            btnSektorIT = view.findViewById(R.id.btnPodrucjeIT);
+//            btnSektorIT.setClickable(false);
+//            btnSektorIT.setEnabled(false);
+//            btnSektorPoslovnihProcesa = view.findViewById(R.id.btnPodrucjePravnihPoslova);
+//            btnSektorPoslovnihProcesa.setClickable(false);
+//            btnSektorPoslovnihProcesa.setEnabled(false);
 
             Animation anim = new AlphaAnimation(0.0f, 1.0f);
             anim.setDuration(100); //You can manage the blinking time with this parameter
@@ -331,33 +357,33 @@ public class IzborSegmentaFragment extends Fragment {
                         btnPodrucjeFinansija.requestFocus();
 
                         break;
-                    case 5:
-                        btnSektorIT.setClickable(true);
-                        btnSektorIT.setEnabled(true);
-                        btnSektorIT.startAnimation(anim);
-                        CustomButtonDay2(btnTradingManagment);
-                        CustomButtonDay2(btnMaloprodaja);
-                        CustomButtonDay2(btnSluzbaMarketing);
-                        CustomButtonDay2(btnSluzbaInvesticijeRazvoj);
-                        CustomButtonDay2(btnPodrucjeFinansija);
-                        CustomButtonDay2(btnSektorIT);
-                        btnSektorIT.requestFocus();
-
-                        break;
-                    case 6:
-                        btnSektorPoslovnihProcesa.setClickable(true);
-                        btnSektorPoslovnihProcesa.setEnabled(true);
-                        btnSektorPoslovnihProcesa.startAnimation(anim);
-                        CustomButtonDay2(btnTradingManagment);
-                        CustomButtonDay2(btnMaloprodaja);
-                        CustomButtonDay2(btnSluzbaMarketing);
-                        CustomButtonDay2(btnSluzbaInvesticijeRazvoj);
-                        CustomButtonDay2(btnPodrucjeFinansija);
-                        CustomButtonDay2(btnSektorIT);
-                        CustomButtonDay2(btnSektorPoslovnihProcesa);
-                        btnSektorPoslovnihProcesa.requestFocus();
-
-                        break;
+//                    case 5:
+//                        btnSektorIT.setClickable(true);
+//                        btnSektorIT.setEnabled(true);
+//                        btnSektorIT.startAnimation(anim);
+//                        CustomButtonDay2(btnTradingManagment);
+//                        CustomButtonDay2(btnMaloprodaja);
+//                        CustomButtonDay2(btnSluzbaMarketing);
+//                        CustomButtonDay2(btnSluzbaInvesticijeRazvoj);
+//                        CustomButtonDay2(btnPodrucjeFinansija);
+//                        CustomButtonDay2(btnSektorIT);
+//                        btnSektorIT.requestFocus();
+//
+//                        break;
+//                    case 6:
+//                        btnSektorPoslovnihProcesa.setClickable(true);
+//                        btnSektorPoslovnihProcesa.setEnabled(true);
+//                        btnSektorPoslovnihProcesa.startAnimation(anim);
+//                        CustomButtonDay2(btnTradingManagment);
+//                        CustomButtonDay2(btnMaloprodaja);
+//                        CustomButtonDay2(btnSluzbaMarketing);
+//                        CustomButtonDay2(btnSluzbaInvesticijeRazvoj);
+//                        CustomButtonDay2(btnPodrucjeFinansija);
+//                        CustomButtonDay2(btnSektorIT);
+//                        CustomButtonDay2(btnSektorPoslovnihProcesa);
+//                        btnSektorPoslovnihProcesa.requestFocus();
+//
+//                        break;
 
                     default:
 
@@ -399,12 +425,6 @@ public class IzborSegmentaFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    OpenFragment();
-                }
-            });
-            btnSektorIT.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
                    // OpenFragment();
                     try {
@@ -433,44 +453,84 @@ public class IzborSegmentaFragment extends Fragment {
 
                     getActivity().onBackPressed();
                 }
+
+
             });
-            btnSektorPoslovnihProcesa.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    //OpenFragment();
-                    try {
-
-                        dbHelper.openDataBase();
-                        ContentValues iuValues = new ContentValues();
-                        iuValues.put("Segment", segment + 1);
-                        iuValues.put("Dan", 2);
-                        iuValues.put("Zapocet", 1);
-                        dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
-                    } catch (Exception ex) {
-                        new AlertDialog.Builder(getActivity())
-                                .setTitle("GRESKA!   " + ex.getMessage())
-                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int whichButton) {
-                                        dialog.dismiss();
-                                    }
-                                })
-
-                                .show();
-                    } finally {
-
-                        dbHelper.close();
-                    }
-                    BaseActivity.segment = +1;
-
-                    getActivity().onBackPressed();
-                }
-            });
+//            btnSektorIT.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                   // OpenFragment();
+//                    try {
+//
+//                        dbHelper.openDataBase();
+//                        ContentValues iuValues = new ContentValues();
+//                        iuValues.put("Segment", segment + 1);
+//                        iuValues.put("Dan", 2);
+//                        iuValues.put("Zapocet", 1);
+//                        dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+//                    } catch (Exception ex) {
+//                        new AlertDialog.Builder(getActivity())
+//                                .setTitle("GRESKA!   " + ex.getMessage())
+//                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialog, int whichButton) {
+//                                        dialog.dismiss();
+//                                    }
+//                                })
+//
+//                                .show();
+//                    } finally {
+//
+//                        dbHelper.close();
+//                    }
+//                    BaseActivity.segment = +1;
+//
+//                    getActivity().onBackPressed();
+//                }
+//            });
+//            btnSektorPoslovnihProcesa.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                    //OpenFragment();
+//                    try {
+//
+//                        dbHelper.openDataBase();
+//                        ContentValues iuValues = new ContentValues();
+//                        iuValues.put("Segment", segment + 1);
+//                        iuValues.put("Dan", 2);
+//                        iuValues.put("Zapocet", 1);
+//                        dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+//                    } catch (Exception ex) {
+//                        new AlertDialog.Builder(getActivity())
+//                                .setTitle("GRESKA!   " + ex.getMessage())
+//                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialog, int whichButton) {
+//                                        dialog.dismiss();
+//                                    }
+//                                })
+//
+//                                .show();
+//                    } finally {
+//
+//                        dbHelper.close();
+//                    }
+//                    BaseActivity.segment = +1;
+//
+//                    getActivity().onBackPressed();
+//                }
+//            });
 
         }
 
         if (dan==3) {
 
+            btnSektorIT = view.findViewById(R.id.btnPodrucjeIT);
+            btnSektorIT.setClickable(false);
+            btnSektorIT.setEnabled(false);
+            btnSektorPoslovnihProcesa = view.findViewById(R.id.btnPodrucjePravnihPoslova);
+            btnSektorPoslovnihProcesa.setClickable(false);
+           btnSektorPoslovnihProcesa.setEnabled(false);
             btnLogistika = view.findViewById(R.id.btnLogistika);
             btnLogistika.setClickable(false);
             btnLogistika.setEnabled(false);
@@ -480,9 +540,6 @@ public class IzborSegmentaFragment extends Fragment {
             btnZmaj = view.findViewById(R.id.btnZmaj);
             btnZmaj.setClickable(false);
             btnZmaj.setEnabled(false);
-            btnVelpro = view.findViewById(R.id.btnVelpro);
-            btnVelpro.setClickable(false);
-            btnVelpro.setEnabled(false);
             btnLondon = view.findViewById(R.id.btnLondon);
             btnLondon.setClickable(false);
             btnLondon.setEnabled(false);
@@ -522,25 +579,50 @@ public class IzborSegmentaFragment extends Fragment {
                 switch (segment) {
                     case 0:
 
-                        btnLogistika.setClickable(true);
-                        btnLogistika.setEnabled(true);
-                        btnLogistika.startAnimation(anim);
-                        CustomButtonDay3(btnLogistika);
+                        btnSektorIT.setClickable(true);
+                        btnSektorIT.setEnabled(true);
+                        btnSektorIT.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
                         btnLogistika.requestFocus();
 
                         break;
                     case 1:
+
+                        btnSektorPoslovnihProcesa.setClickable(true);
+                        btnSektorPoslovnihProcesa.setEnabled(true);
+                        btnSektorPoslovnihProcesa.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
+                        btnLogistika.requestFocus();
+
+                        break;
+                    case 2:
+
+                        btnLogistika.setClickable(true);
+                        btnLogistika.setEnabled(true);
+                        btnLogistika.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
+                        CustomButtonDay3(btnLogistika);
+                        btnLogistika.requestFocus();
+
+                        break;
+                    case 3:
                         btnVeleprodaja.setClickable(true);
                         btnVeleprodaja.setEnabled(true);
                         btnVeleprodaja.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
                         CustomButtonDay3(btnLogistika);
                         CustomButtonDay3(btnVeleprodaja);
                         btnVeleprodaja.requestFocus();
 
                         break;
-                    case 2:
+                    case 4:
                         btnZmaj.setClickable(true);
                         btnZmaj.setEnabled(true);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
                         CustomButtonDay3(btnLogistika);
                         CustomButtonDay3(btnVeleprodaja);
                         CustomButtonDay3(btnZmaj);
@@ -549,52 +631,45 @@ public class IzborSegmentaFragment extends Fragment {
 
                         break;
 
-                    case 3:
-                        btnVelpro.setClickable(true);
-                        btnVelpro.setEnabled(true);
-                        btnVelpro.startAnimation(anim);
-                        CustomButtonDay3(btnLogistika);
-                        CustomButtonDay3(btnVeleprodaja);
-                        CustomButtonDay3(btnZmaj);
-                        CustomButtonDay3(btnVelpro);
-                        btnVelpro.requestFocus();
 
-                        break;
 
-                    case 4:
+                    case 5:
                         btnLondon.setClickable(true);
                         btnLondon.setEnabled(true);
                         btnLondon.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
                         CustomButtonDay3(btnLogistika);
                         CustomButtonDay3(btnVeleprodaja);
                         CustomButtonDay3(btnZmaj);
-                        CustomButtonDay3(btnVelpro);
                         CustomButtonDay3(btnLondon);
                         btnLondon.requestFocus();
 
                         break;
-                    case 5:
+                    case 6:
                         btnBeogradjanka.setClickable(true);
                         btnBeogradjanka.setEnabled(true);
                         btnBeogradjanka.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
                         CustomButtonDay3(btnLogistika);
                         CustomButtonDay3(btnVeleprodaja);
                         CustomButtonDay3(btnZmaj);
-                        CustomButtonDay3(btnVelpro);
                         CustomButtonDay3(btnLondon);
                         CustomButtonDay3(btnBeogradjanka);
                         btnBeogradjanka.requestFocus();
 
                         break;
 
-                    case 6:
+                    case 7:
                         btnEvaluacija.setClickable(true);
                         btnEvaluacija.setEnabled(true);
                         btnEvaluacija.startAnimation(anim);
+                        CustomButtonDay3(btnSektorIT);
+                        CustomButtonDay3(btnSektorPoslovnihProcesa);
                         CustomButtonDay3(btnLogistika);
                         CustomButtonDay3(btnVeleprodaja);
                         CustomButtonDay3(btnZmaj);
-                        CustomButtonDay3(btnVelpro);
                         CustomButtonDay3(btnLondon);
                         CustomButtonDay3(btnBeogradjanka);
                         CustomButtonDay3(btnEvaluacija);
@@ -607,6 +682,69 @@ public class IzborSegmentaFragment extends Fragment {
                 }
             }
 
+                        btnSektorIT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    OpenFragment();
+//                    try {
+//
+//                        dbHelper.openDataBase();
+//                        ContentValues iuValues = new ContentValues();
+//                        iuValues.put("Segment", segment + 1);
+//                        iuValues.put("Dan", 2);
+//                        iuValues.put("Zapocet", 1);
+//                        dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+//                    } catch (Exception ex) {
+//                        new AlertDialog.Builder(getActivity())
+//                                .setTitle("GRESKA!   " + ex.getMessage())
+//                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialog, int whichButton) {
+//                                        dialog.dismiss();
+//                                    }
+//                                })
+//
+//                                .show();
+//                    } finally {
+//
+//                        dbHelper.close();
+//                    }
+//                    BaseActivity.segment = +1;
+//
+//                    getActivity().onBackPressed();
+                }
+            });
+            btnSektorPoslovnihProcesa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //OpenFragment();
+                    try {
+
+                        dbHelper.openDataBase();
+                        ContentValues iuValues = new ContentValues();
+                        iuValues.put("Segment", segment + 1);
+                        iuValues.put("Dan", 3);
+                        iuValues.put("Zapocet", 1);
+                        dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                    } catch (Exception ex) {
+                        new AlertDialog.Builder(getActivity())
+                                .setTitle("GRESKA!   " + ex.getMessage())
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        dialog.dismiss();
+                                    }
+                                })
+
+                                .show();
+                    } finally {
+
+                        dbHelper.close();
+                    }
+                    BaseActivity.segment = +1;
+
+                    getActivity().onBackPressed();
+                }
+            });
 
             btnLogistika.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -629,13 +767,7 @@ public class IzborSegmentaFragment extends Fragment {
                     OpenFragment();
                 }
             });
-            btnVelpro.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    OpenFragment();
-                }
-            });
             btnLondon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

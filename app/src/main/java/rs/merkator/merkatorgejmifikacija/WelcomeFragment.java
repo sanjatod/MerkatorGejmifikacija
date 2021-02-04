@@ -54,6 +54,9 @@ public class WelcomeFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
+
                         if (dan == 1 && segment == 2) {
                             try {
 
@@ -168,22 +171,55 @@ public class WelcomeFragment extends Fragment {
                                         getActivity().onBackPressed();
 
                                     } else {
-                                        if (dan == 1) {
 
-                                            //FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                                            //OrganizationalSchemeFragment w1 = new OrganizationalSchemeFragment(dan, segment);
-                                            //ft1.replace(R.id.fragment_frame, w1);
-                                            //ft1.commit();
+                                        if (dan == 1 && segment == 6) {
+                                            try {
 
-                                            FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                                            MoveFragment w1 = new MoveFragment(dan, segment);
-                                            ft1.replace(R.id.fragment_frame, w1);
-                                            ft1.commit();
+                                                dbHelper.openDataBase();
+                                                ContentValues iuValues = new ContentValues();
+                                                iuValues.put("Segment", segment + 1);
+                                                iuValues.put("Dan", 1);
+                                                iuValues.put("Zapocet", 1);
+                                                dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                                            } catch (Exception ex) {
+                                                new AlertDialog.Builder(getActivity())
+                                                        .setTitle("GRESKA!   " + ex.getMessage())
+                                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                                dialog.dismiss();
+                                                            }
+                                                        })
+
+                                                        .show();
+                                            } finally {
+
+                                                dbHelper.close();
+                                            }
+                                            BaseActivity.segment = +1;
+
+                                            getActivity().onBackPressed();
+
+                                        } else {
+
+
+                                            if (dan == 1) {
+
+                                                //FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+                                                //OrganizationalSchemeFragment w1 = new OrganizationalSchemeFragment(dan, segment);
+                                                //ft1.replace(R.id.fragment_frame, w1);
+                                                //ft1.commit();
+
+                                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+                                                MoveFragment w1 = new MoveFragment(dan, segment);
+                                                ft1.replace(R.id.fragment_frame, w1);
+                                                ft1.commit();
+                                            }
                                         }
                                     }
                                 }
 
                             }
+                        }
 
                             if (dan == 2 && segment == 0) {
 
@@ -195,6 +231,33 @@ public class WelcomeFragment extends Fragment {
                             }
 
                             if (dan == 2 && segment == 1) {
+
+                                try {
+
+                                    dbHelper.openDataBase();
+                                    ContentValues iuValues = new ContentValues();
+                                    iuValues.put("Segment", segment + 1);
+                                    iuValues.put("Dan", 2);
+                                    iuValues.put("Zapocet", 1);
+                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                                } catch (Exception ex) {
+                                    new AlertDialog.Builder(getActivity())
+                                            .setTitle("GRESKA!   " + ex.getMessage())
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                    dialog.dismiss();
+
+                                                }
+                                            })
+
+                                            .show();
+                                } finally {
+
+                                    dbHelper.close();
+                                }
+                                BaseActivity.segment = +1;
+                                segment= +1;
+
 
                                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                                 TaskFragment t = new TaskFragment(null, dan, segment);
@@ -308,6 +371,49 @@ public class WelcomeFragment extends Fragment {
 
                             if (dan == 3 && segment == 0) {
 //
+////                            FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+////                            OrganizationalSchemeFragment w1 = new OrganizationalSchemeFragment(dan, segment);
+////                            ft1.replace(R.id.fragment_frame, w1);
+////                            ft1.commit();
+//                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+//                                ImageViewFragment w1 = new ImageViewFragment(dan, segment);
+//                                ft1.replace(R.id.fragment_frame, w1);
+//                                ft1.commit();
+
+                                try
+                                {
+                                    dbHelper = new DataBaseHelper(getActivity());
+                                    dbHelper.openDataBase();
+                                    ContentValues iuValues = new ContentValues();
+                                    iuValues.put("Segment", 1);
+                                    iuValues.put("Dan", 3);
+                                    iuValues.put("Zapocet", 1);
+                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment",null,iuValues);
+                                }
+                                catch (Exception ex)
+                                {
+                                    new AlertDialog.Builder(getActivity())
+                                            .setTitle("GRESKA!   "+ex.getMessage())
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                    dialog.dismiss();
+                                                }
+                                            })
+
+                                            .show();
+                                }
+                                finally {
+
+                                    dbHelper.close();
+                                }
+                                BaseActivity.segment=+1;
+
+                                getActivity().onBackPressed();
+
+                            }
+
+                            if (dan == 3 && segment == 2) {
+//
 //                            FragmentTransaction ft1 = getFragmentManager().beginTransaction();
 //                            OrganizationalSchemeFragment w1 = new OrganizationalSchemeFragment(dan, segment);
 //                            ft1.replace(R.id.fragment_frame, w1);
@@ -317,68 +423,38 @@ public class WelcomeFragment extends Fragment {
                                 ft1.replace(R.id.fragment_frame, w1);
                                 ft1.commit();
 
-                            }
-
-                            if (dan == 3 && segment == 1) {
-
-                                try {
-
-                                    dbHelper.openDataBase();
-                                    ContentValues iuValues = new ContentValues();
-                                    iuValues.put("Segment", segment + 1);
-                                    iuValues.put("Dan", 3);
-                                    iuValues.put("Zapocet", 1);
-                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
-                                } catch (Exception ex) {
-                                    new AlertDialog.Builder(getActivity())
-                                            .setTitle("GRESKA!   " + ex.getMessage())
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int whichButton) {
-                                                    dialog.dismiss();
-                                                }
-                                            })
-
-                                            .show();
-                                } finally {
-
-                                    dbHelper.close();
-                                }
-                                BaseActivity.segment = +1;
-
-                                getActivity().onBackPressed();
-
-                            }
-
-                            if (dan == 3 && segment == 2) {
-
-                                try {
-
-                                    dbHelper.openDataBase();
-                                    ContentValues iuValues = new ContentValues();
-                                    iuValues.put("Segment", segment + 1);
-                                    iuValues.put("Dan", 3);
-                                    iuValues.put("Zapocet", 1);
-                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
-                                } catch (Exception ex) {
-                                    new AlertDialog.Builder(getActivity())
-                                            .setTitle("GRESKA!   " + ex.getMessage())
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int whichButton) {
-                                                    dialog.dismiss();
-
-                                                }
-                                            })
-
-                                            .show();
-                                } finally {
-
-                                    dbHelper.close();
-                                }
-                                BaseActivity.segment = +1;
-
-                                getActivity().onBackPressed();
+//                                try
+//                                {
+//                                    dbHelper = new DataBaseHelper(getActivity());
+//                                    dbHelper.openDataBase();
+//                                    ContentValues iuValues = new ContentValues();
+//                                    iuValues.put("Segment", 1);
+//                                    iuValues.put("Dan", 3);
+//                                    iuValues.put("Zapocet", 1);
+//                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment",null,iuValues);
+//                                }
+//                                catch (Exception ex)
+//                                {
+//                                    new AlertDialog.Builder(getActivity())
+//                                            .setTitle("GRESKA!   "+ex.getMessage())
+//                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                                public void onClick(DialogInterface dialog, int whichButton) {
+//                                                    dialog.dismiss();
+//                                                }
+//                                            })
+//
+//                                            .show();
+//                                }
+//                                finally {
+//
+//                                    dbHelper.close();
+//                                }
+//                                BaseActivity.segment=+1;
+//
+//                                getActivity().onBackPressed();
 
                             }
+
                             if (dan == 3 && segment == 3) {
 
                                 try {
@@ -408,7 +484,67 @@ public class WelcomeFragment extends Fragment {
                                 getActivity().onBackPressed();
 
                             }
+
                             if (dan == 3 && segment == 4) {
+
+                                try {
+
+                                    dbHelper.openDataBase();
+                                    ContentValues iuValues = new ContentValues();
+                                    iuValues.put("Segment", segment + 1);
+                                    iuValues.put("Dan", 3);
+                                    iuValues.put("Zapocet", 1);
+                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                                } catch (Exception ex) {
+                                    new AlertDialog.Builder(getActivity())
+                                            .setTitle("GRESKA!   " + ex.getMessage())
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                    dialog.dismiss();
+
+                                                }
+                                            })
+
+                                            .show();
+                                } finally {
+
+                                    dbHelper.close();
+                                }
+                                BaseActivity.segment = +1;
+
+                                getActivity().onBackPressed();
+
+                            }
+                            if (dan == 3 && segment == 5) {
+
+                                try {
+
+                                    dbHelper.openDataBase();
+                                    ContentValues iuValues = new ContentValues();
+                                    iuValues.put("Segment", segment + 1);
+                                    iuValues.put("Dan", 3);
+                                    iuValues.put("Zapocet", 1);
+                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                                } catch (Exception ex) {
+                                    new AlertDialog.Builder(getActivity())
+                                            .setTitle("GRESKA!   " + ex.getMessage())
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                    dialog.dismiss();
+                                                }
+                                            })
+
+                                            .show();
+                                } finally {
+
+                                    dbHelper.close();
+                                }
+                                BaseActivity.segment = +1;
+
+                                getActivity().onBackPressed();
+
+                            }
+                            if (dan == 3 && segment == 6) {
 
                                 try {
 
@@ -438,7 +574,7 @@ public class WelcomeFragment extends Fragment {
 
                             }
 
-                            if (dan == 3 && segment == 5) {
+                            if (dan == 3 && segment == 7) {
 
                                 try {
 
@@ -470,7 +606,7 @@ public class WelcomeFragment extends Fragment {
                         }
 
 
-                    }
+
                 });
 
         if(dan==1)
@@ -494,12 +630,17 @@ public class WelcomeFragment extends Fragment {
                     txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Sektor\n  ORGANIZACIONOG DIZAJNA SLUŽBA PERSONALNE EVIDENCIJE");
 
                     break;
+
                 case 4:
+                    txtWelcome.setText("DOBRO DOŠLI U MERCATOR S\n SEKTOR HR CONTROLINGA");
+
+                    break;
+                case 5:
                     txtWelcome.setText("DOBRO DOŠLI U MERCATOR S\n RODA MEGA 428");
 
                     break;
 
-                case 5:
+                case 6:
                     txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n \n Segment\n MALOPRODAJNI OBJEKAT - HIPERMARKET");
 
                     break;
@@ -541,28 +682,56 @@ public class WelcomeFragment extends Fragment {
                     switch (segment) {
                         case 0:
 
-                            txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  LOGISTIKA");
+                            try {
 
-                            break;
-                        case 1:
-                            txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  VELEPRODAJA");
+                                dbHelper.openDataBase();
+                                ContentValues iuValues = new ContentValues();
+                                iuValues.put("Segment", segment + 1);
+                                iuValues.put("Dan", 3);
+                                iuValues.put("Zapocet", 1);
+                                dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                            } catch (Exception ex) {
+                                new AlertDialog.Builder(getActivity())
+                                        .setTitle("GRESKA!   " + ex.getMessage())
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                dialog.dismiss();
+                                            }
+                                        })
+
+                                        .show();
+                            } finally {
+
+                                dbHelper.close();
+                            }
+                            BaseActivity.segment = +1;
+
+                            getActivity().onBackPressed();
 
                             break;
                         case 2:
+                            txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  LOGISTIKA");
+
+                            break;
+                        case 3:
+                            txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  VELEPRODAJA");
+
+                            break;
+                        case 4:
                             txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  VP iz MP Zmaj");
 
                             break;
 
-                        case 3:
-                            txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n VP 901 - VILINE VODE  ");
-                            break;
-                        case 4:
+                        case 5:
                             txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n Idea London");
                             break;
-                        case 5:
+                        case 6:
                             txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n Idea Beograđanka");
-
                             break;
+                        //case 7:
+                            //txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n Idea Beograđanka");
+
+                            //break;
 
                         default:
                     }

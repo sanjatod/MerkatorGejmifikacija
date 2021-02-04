@@ -167,9 +167,9 @@ public class PuzzleFragment extends Fragment {
                 public void run() {
                     win=true;
                     BaseActivity.puzzle=true;
-                    Intent intent = new Intent(mActivity, InfoFragment.class);
-                    mActivity.startActivity(intent);
-                    ///mActivity.onBackPressed();
+                    //Intent intent = new Intent(mActivity, InfoFragment.class);
+                    //mActivity.startActivity(intent);
+                    mActivity.onBackPressed();
                 }
             }, 2000);
 

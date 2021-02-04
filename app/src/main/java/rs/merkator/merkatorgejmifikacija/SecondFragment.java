@@ -97,6 +97,10 @@ public class SecondFragment extends Fragment {
         int rowNumber=listPitanjeTipa2.size();
         if (listPitanjeTipa2.size()%2==0)
             rowNumber= listPitanjeTipa2.size()/2;
+        else
+        {
+            if (listPitanjeTipa2.size()==9) rowNumber= 5;
+        }
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), rowNumber);
         imageGrid.setLayoutManager(mLayoutManager);
 //        Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.line_divider);

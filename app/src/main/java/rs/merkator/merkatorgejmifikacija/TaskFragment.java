@@ -102,7 +102,7 @@ public class TaskFragment extends Fragment {
         }
         else
         {
-            if (d==2&&s==1)
+            if (d==2&&s==1&&dan==null)
             {
                 txtPitanja.setText("Pitajte nekog u blizini gde sede kolege iz područja Maloprodaje kako bi vam pomogao da odgovorite tačno na pitanja koje slede");
             }
@@ -161,7 +161,7 @@ public class TaskFragment extends Fragment {
         });
 
 
-        if (d==2 && s==2 && dan.getRowid()==43)
+        if (d==2 && s==2 && dan!=null &&  dan.getRowid()==43)
         {
             FragmentTransaction ft1 = getFragmentManager().beginTransaction();
             MatArrayFragment w1 = new MatArrayFragment();
@@ -170,7 +170,7 @@ public class TaskFragment extends Fragment {
 
         }
         btnNext = view.findViewById(R.id.btnNext);
-        if (d==2 && s==3 && dan.getRowid()==59)
+        if (d==2 && s==3 && dan!=null && dan.getRowid()==59)
         {
             btnNext.setVisibility(View.GONE);
 
@@ -228,7 +228,7 @@ public class TaskFragment extends Fragment {
                             getActivity().onBackPressed();
                         }
                         else {
-                            if (dan == null && d == 2 && s == 1) {
+                            if (dan == null && d == 2 && s == 1 ) {
 //                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
 //                                OrganizationalSchemeFragment w1 = new OrganizationalSchemeFragment(d, s);
 //                                ft1.replace(R.id.fragment_frame, w1);

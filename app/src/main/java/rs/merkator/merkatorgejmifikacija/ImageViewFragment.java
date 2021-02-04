@@ -77,7 +77,7 @@ public class ImageViewFragment extends Fragment {
                             dbHelper = new DataBaseHelper(getActivity());
                             dbHelper.openDataBase();
                             ContentValues iuValues = new ContentValues();
-                            iuValues.put("Segment", 1);
+                            iuValues.put("Segment", 3);
                             iuValues.put("Dan", 3);
                             iuValues.put("Zapocet", 1);
                             dbHelper.myDataBase.insertOrThrow("AkcijaSegment",null,iuValues);

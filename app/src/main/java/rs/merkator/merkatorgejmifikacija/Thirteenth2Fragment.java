@@ -73,7 +73,7 @@ public class Thirteenth2Fragment extends Fragment {
         btnNext=(FloatingActionButton) view.findViewById(R.id.btnNext) ;
 
         TextView txtPitanja = view.findViewById(R.id.txtTextPitanja);
-        //txtPitanja.setText(dan.getTekstPitanja());
+        txtPitanja.setText(dan.getTekstPitanja());
 
         txtPut1=(TextView) view.findViewById(R.id.txt2) ;
         txtPut2=(TextView) view.findViewById(R.id.txt4) ;

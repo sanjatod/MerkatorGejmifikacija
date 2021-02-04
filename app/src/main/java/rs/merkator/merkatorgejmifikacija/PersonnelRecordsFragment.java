@@ -70,7 +70,7 @@ public class PersonnelRecordsFragment extends Fragment {
 
         etxtOdgovor.requestFocus();
         txtPitanja = view.findViewById(R.id.txtTextPitanja);
-        txtPitanja.setText("Zamolite nekoga da vam pokaže gde se nalazi služba kadrovse evidencije\n Ime i prezime osobe koja vam je pomogla:");
+        txtPitanja.setText("Zamolite osobu sa infopulta da vam objasni gde se nalazi kancelarija službe kadrovske evidencije\n Ime i prezime osobe koja vam je pomogla:");
         view.findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

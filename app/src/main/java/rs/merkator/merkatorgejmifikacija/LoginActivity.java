@@ -136,9 +136,9 @@ public class LoginActivity extends AppCompatActivity {
                                 .setTitle("Baza je prazna, morate sačekati import podataka")
                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int whichButton) {
+
                                         YourAsyncTask s = new YourAsyncTask(LoginActivity.this);
                                         s.execute();
-
                                         dialog.dismiss();
                                     }
                                 })

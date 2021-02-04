@@ -68,6 +68,7 @@ public class TaskDecimalNumberPercentageFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
+
                         BaseActivity.proc=true;
                         getActivity().onBackPressed();
 

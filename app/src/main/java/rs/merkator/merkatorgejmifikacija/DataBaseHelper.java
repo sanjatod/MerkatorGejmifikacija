@@ -151,6 +151,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         AdminPanel.ImportDb();
 
 
+
+
 //        //Open your local db as the input stream
 //        InputStream myInput = myContext.getAssets().open(DB_NAME);
 //

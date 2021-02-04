@@ -66,14 +66,19 @@ public class FourthFragment extends Fragment {
     ) {
         dialogView1= inflater.inflate(R.layout.alertdialog1, null);
         // Inflate the layout for this fragment
-        if ((d==3&&s==6&&dan.getRowid()==79) || (d==3&&s==4&&dan.getRowid()==57))
-        {
-            return inflater.inflate(R.layout.fragment_fourth1, container, false);
 
-        }
-        else
+//||  (d == 1 && dan.getRowid() == 76)
+          if ((d == 3 && s == 6 && dan.getRowid() == 79) || (d == 3 && s == 4 && dan.getRowid() == 57) ) {
+              return inflater.inflate(R.layout.fragment_fourth1, container, false);
 
-        return inflater.inflate(R.layout.fragment_fourth, container, false);
+          } else
+              if(d == 1 && dan.getRowid() == 76  || (d == 3 && dan.getRowid() == 82))
+                  return inflater.inflate(R.layout.fragment_fourth2, container, false);
+                  else
+
+              return inflater.inflate(R.layout.fragment_fourth, container, false);
+
+
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -156,7 +161,7 @@ public class FourthFragment extends Fragment {
 
                         if (tacni_odgovori.length!=list.size()) res=false;
 
-
+//res=true;
 
                         if(res) {
                             DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
@@ -178,7 +183,7 @@ public class FourthFragment extends Fragment {
                                 dbHelper.close();
                             }
 
-                            if (dan.getSegment()==6 && dan.getRB()==9)
+                            if (d==1 &&  dan.getRowid()==63)
                             {
                                 txtCestitamo.setText("Objašnjenje za self scen: Želeći da odgovori na potrebe savremenog načina života, Mercator-S konstantno radi na unapređenju brzine kupovine.Kompanija se na tržištu izdvaja po tome što je u odabranim prodavnicama obezbedila samouslužne kase na kojima kupci sami mogu skenirati proizvode i platiti račun. Samo nekoliko godina kasnije odabrani obejkti dobili su Sken za tren, tehnološko rešenje koje potrošačima omogućava da već tokom kupovine skeniraju proizvode, a na posebno obeleženoj kasi, bez čekanja u redu, samo plate iznos računa.");
                                 new AlertDialog.Builder(getActivity())
@@ -230,6 +235,9 @@ public class FourthFragment extends Fragment {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            if(d == 1 && dan.getRowid() == 76)
+            return new PitanjeTipa4RecyclerViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip31, parent, false));
+            else
             return new PitanjeTipa4RecyclerViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip3, parent, false));
         }
         class ViewHolder extends RecyclerView.ViewHolder {

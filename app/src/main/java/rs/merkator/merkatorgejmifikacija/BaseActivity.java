@@ -162,8 +162,6 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
         UIFragment();
 
 
-
-
     }
 
         private void UIFragment()
@@ -414,7 +412,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
     }
 
     private void NoviSegment() {
-        if (dan == 3 && segment == 6) {
+        if (dan == 3 && segment == 7) {
 
             fragment = fm.findFragmentByTag("IzborSegmenta");
             if (fragment == null) {
@@ -624,28 +622,16 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                         }
 
                                     }
-
-
                                 }
-
-
                             }
-
-
-
                         }
                     }
-
                 }
-
-
-
 
                     switch (segment) {
                         case 1:
                             txtCestitamo.setText("Čestitamo, uspešno ste završili segment Opšte informacije");
                             new AlertDialog.Builder(mContext)
-                                   // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
                                     .setView(dialogView1)
                                     .setCancelable(false)
 
@@ -664,7 +650,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             break;
                         case 2:
 
-                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nIde Akademija");
+                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nIdea Akademija");
 
                             new AlertDialog.Builder(mContext)
                                     // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
@@ -696,17 +682,23 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                                 ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
 
                                                 ZatvoriSegmentDan1();
-                                                fragment = fm.findFragmentByTag("PrviFragment");
-                                                if (fragment == null) {
-                                                    fm = getSupportFragmentManager();
-                                                    FragmentTransaction ft = fm.beginTransaction();
-                                                    fragment = new PersonnelRecordsFragment();
-                                                    ft.addToBackStack(null);
-                                                    ft.replace(R.id.fragment_frame, fragment);
-                                                    ft.commit();
-                                                    return;
+                                                NoviSegment();
 
-                                                }
+//                                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+//                                                PersonnelRecordsFragment w1 = new PersonnelRecordsFragment();
+//                                                ft1.replace(R.id.fragment_frame, w1);
+//                                                ft1.commit();
+//                                                fragment = fm.findFragmentByTag("PrviFragment");
+//                                                if (fragment == null) {
+//                                                    fm = getSupportFragmentManager();
+//                                                    FragmentTransaction ft = fm.beginTransaction();
+//                                                    fragment = new PersonnelRecordsFragment();
+//                                                    ft.addToBackStack(null);
+//                                                    ft.replace(R.id.fragment_frame, fragment);
+//                                                    ft.commit();
+//                                                    return;
+//
+//                                                }
 
 
                                             }
@@ -781,6 +773,35 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             break;
 
                         case 5:
+                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor HR controlling-a");
+                            new AlertDialog.Builder(mContext)
+                                    .setCancelable(false)
+                                    .setView(dialogView1)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int whichButton) {
+
+                                            ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+                                            dialog.dismiss();
+
+                                            fragment = fm.findFragmentByTag("NewAdress");
+                                            if (fragment == null) {
+                                                fm = getSupportFragmentManager();
+                                                FragmentTransaction ft = fm.beginTransaction();
+                                                fragment = new NewAddresFragment();
+                                                ft.addToBackStack(null);
+                                                ft.replace(R.id.fragment_frame, fragment);
+                                                ft.commit();
+
+
+                                            }
+                                        }
+                                    })
+
+                                    .show();
+
+                            break;
+
+                        case 6:
                             txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nRoda Mega 428");
                             new AlertDialog.Builder(mContext)
                                     .setCancelable(false)
@@ -799,7 +820,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                             break;
 
-                        case 6:
+                        case 7:
                             // proverite da li je zavrsen Kodeks oblacenja
                             dbHelper.openDataBase();
                             String sql="Select Stanje from Kodeks";
@@ -896,8 +917,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
             if (ZapocetiSegment(2))
                 return;
 
-            if (segment==0)
-            {
+            if (segment == 0) {
                 fragment = fm.findFragmentByTag("IzborSegmenta");
                 if (fragment == null) {
                     fm = getSupportFragmentManager();
@@ -908,17 +928,15 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                     ft.commit();
                     return;
                 }
-            }
-            else
-            {
+            } else {
 
                 fm = getSupportFragmentManager();
                 Cursor c;
-                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan2 where Segment="+segment+" Order by CAST(RB as int)";
+                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan2 where Segment=" + segment + " Order by CAST(RB as int)";
                 dbHelper.openDataBase();
                 c = dbHelper.myDataBase.rawQuery(sql, null);
 
-                listDan=new ArrayList<>();
+                listDan = new ArrayList<>();
 
                 if (c.moveToFirst()) {
                     do {
@@ -939,13 +957,13 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                 c.close();
 
 
-                for (Dan dan2: listDan) {
+                for (Dan dan2 : listDan) {
 
                     if (dan2.getTipOdgovora() == 1 && dan2.getOdgovoreno() == 0) {
                         fragment = fm.findFragmentByTag("myFragmentTag");
                         if (fragment == null) {
                             FragmentTransaction ft = fm.beginTransaction();
-                            fragment = new FirstFragment(dan2,dan,segment);
+                            fragment = new FirstFragment(dan2, dan, segment);
                             ft.addToBackStack(null);
                             ft.replace(R.id.fragment_frame, fragment);
                             ft.commit();
@@ -957,7 +975,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             fragment = fm.findFragmentByTag("2");
                             if (fragment == null) {
                                 FragmentTransaction ft = fm.beginTransaction();
-                                fragment = new SecondFragment(dan2,dan,segment);
+                                fragment = new SecondFragment(dan2, dan, segment);
                                 ft.addToBackStack(null);
                                 ft.replace(R.id.fragment_frame, fragment);
                                 ft.commit();
@@ -970,7 +988,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                 fragment = fm.findFragmentByTag("3");
                                 if (fragment == null) {
                                     FragmentTransaction ft = fm.beginTransaction();
-                                    fragment = new ThirdFragment(dan2,dan,segment);
+                                    fragment = new ThirdFragment(dan2, dan, segment);
                                     ft.addToBackStack(null);
                                     ft.replace(R.id.fragment_frame, fragment);
                                     ft.commit();
@@ -983,7 +1001,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                     fragment = fm.findFragmentByTag("4");
                                     if (fragment == null) {
                                         FragmentTransaction ft = fm.beginTransaction();
-                                        fragment = new FourthFragment(dan2,dan,segment);
+                                        fragment = new FourthFragment(dan2, dan, segment);
                                         ft.addToBackStack(null);
                                         ft.replace(R.id.fragment_frame, fragment);
                                         ft.commit();
@@ -997,7 +1015,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                         fragment = fm.findFragmentByTag("5");
                                         if (fragment == null) {
                                             FragmentTransaction ft = fm.beginTransaction();
-                                            fragment = new FifthFragment(dan2,dan,segment);
+                                            fragment = new FifthFragment(dan2, dan, segment);
                                             ft.addToBackStack(null);
                                             ft.replace(R.id.fragment_frame, fragment);
                                             ft.commit();
@@ -1005,101 +1023,85 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                                         }
 
-                                    } else
-                                    {
+                                    } else {
 
-                                        if (dan2.getTipOdgovora() == 6 && dan2.getOdgovoreno() == 0)
-                                        {
+                                        if (dan2.getTipOdgovora() == 6 && dan2.getOdgovoreno() == 0) {
 
                                             fragment = fm.findFragmentByTag("6");
                                             if (fragment == null) {
                                                 FragmentTransaction ft = fm.beginTransaction();
-                                                fragment = new TaskFragment(dan2,dan,segment );
+                                                fragment = new TaskFragment(dan2, dan, segment);
                                                 ft.addToBackStack(null);
                                                 ft.replace(R.id.fragment_frame, fragment);
                                                 ft.commit();
                                                 return;
 
                                             }
-                                        }
-                                        else
-                                        {
+                                        } else {
                                             if (dan2.getTipOdgovora() == 7 && dan2.getOdgovoreno() == 0) {
                                                 fragment = fm.findFragmentByTag("7");
                                                 if (fragment == null) {
                                                     FragmentTransaction ft = fm.beginTransaction();
-                                                    fragment = new SeventhFragment(dan2,dan,segment );
+                                                    fragment = new SeventhFragment(dan2, dan, segment);
                                                     ft.addToBackStack(null);
                                                     ft.replace(R.id.fragment_frame, fragment);
                                                     ft.commit();
                                                     return;
 
                                                 }
-                                            }
-                                            else
-                                            {
+                                            } else {
 
 
-                                                    if (dan2.getTipOdgovora() == 9 && dan2.getOdgovoreno() == 0) {
-                                                        fragment = fm.findFragmentByTag("9");
+                                                if (dan2.getTipOdgovora() == 9 && dan2.getOdgovoreno() == 0) {
+                                                    fragment = fm.findFragmentByTag("9");
+                                                    if (fragment == null) {
+                                                        FragmentTransaction ft = fm.beginTransaction();
+                                                        fragment = new NinthFragment(dan2, dan, segment);
+                                                        ft.addToBackStack(null);
+                                                        ft.replace(R.id.fragment_frame, fragment);
+                                                        ft.commit();
+                                                        return;
+
+                                                    }
+                                                } else {
+                                                    if (dan2.getTipOdgovora() == 8 && dan2.getOdgovoreno() == 0) {
+                                                        fragment = fm.findFragmentByTag("8");
                                                         if (fragment == null) {
                                                             FragmentTransaction ft = fm.beginTransaction();
-                                                            fragment = new NinthFragment(dan2,dan,segment );
+                                                            fragment = new EighthFragment(dan2, dan, segment);
                                                             ft.addToBackStack(null);
                                                             ft.replace(R.id.fragment_frame, fragment);
                                                             ft.commit();
                                                             return;
 
                                                         }
-                                                    }
-                                                    else
-                                                    {
-                                                        if (dan2.getTipOdgovora() == 8 && dan2.getOdgovoreno() == 0) {
+                                                    } else {
+                                                        if (dan2.getTipOdgovora() == 10 && dan2.getOdgovoreno() == 0) {
                                                             fragment = fm.findFragmentByTag("8");
                                                             if (fragment == null) {
                                                                 FragmentTransaction ft = fm.beginTransaction();
-                                                                fragment = new EighthFragment(dan2,dan,segment );
+                                                                fragment = new TenthFragment(dan2, dan, segment);
                                                                 ft.addToBackStack(null);
                                                                 ft.replace(R.id.fragment_frame, fragment);
                                                                 ft.commit();
                                                                 return;
 
                                                             }
-                                                        }
-
-                                                        else
-                                                        {
-                                                            if (dan2.getTipOdgovora() == 10 && dan2.getOdgovoreno() == 0) {
-                                                                fragment = fm.findFragmentByTag("8");
+                                                        } else {
+                                                            if (dan2.getTipOdgovora() == 11 && dan2.getOdgovoreno() == 0) {
+                                                                fragment = fm.findFragmentByTag("11");
                                                                 if (fragment == null) {
                                                                     FragmentTransaction ft = fm.beginTransaction();
-                                                                    fragment = new TenthFragment(dan2,dan,segment );
+                                                                    fragment = new EleventhFragment(dan2, dan, segment);
                                                                     ft.addToBackStack(null);
                                                                     ft.replace(R.id.fragment_frame, fragment);
                                                                     ft.commit();
                                                                     return;
 
                                                                 }
-                                                            }
-                                                            else
-                                                            {
-                                                                if (dan2.getTipOdgovora() == 11 && dan2.getOdgovoreno() == 0) {
-                                                                    fragment = fm.findFragmentByTag("11");
-                                                                    if (fragment == null) {
-                                                                        FragmentTransaction ft = fm.beginTransaction();
-                                                                        fragment = new EleventhFragment(dan2,dan,segment );
-                                                                        ft.addToBackStack(null);
-                                                                        ft.replace(R.id.fragment_frame, fragment);
-                                                                        ft.commit();
-                                                                        return;
-
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    if (dan2.getTipOdgovora() == 13 && dan2.getOdgovoreno() == 0)
-                                                                    {
-                                                                        if(dan2.getRowid()==74) {
+                                                            } else {
+                                                                if (dan2.getTipOdgovora() == 13 && dan2.getOdgovoreno() == 0) {
+                                                                    if (dan2.getRowid() == 74) {
                                                                         fragment = fm.findFragmentByTag("11");
                                                                         if (fragment == null) {
                                                                             FragmentTransaction ft = fm.beginTransaction();
@@ -1111,78 +1113,51 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                                                                         }
                                                                     }
-                                                                        if(dan2.getRowid()==140) {
-                                                                            fragment = fm.findFragmentByTag("11");
-                                                                            if (fragment == null) {
-                                                                                FragmentTransaction ft = fm.beginTransaction();
-                                                                                fragment = new Thirteenth1Fragment(dan2, dan, segment);
-                                                                                ft.addToBackStack(null);
-                                                                                ft.replace(R.id.fragment_frame, fragment);
-                                                                                ft.commit();
-                                                                                return;
-
-                                                                            }
-                                                                        }
-                                                                        if(dan2.getRowid()==146) {
-                                                                            fragment = fm.findFragmentByTag("11");
-                                                                            if (fragment == null) {
-                                                                                FragmentTransaction ft = fm.beginTransaction();
-                                                                                fragment = new Thirteenth2Fragment(dan2, dan, segment);
-                                                                                ft.addToBackStack(null);
-                                                                                ft.replace(R.id.fragment_frame, fragment);
-                                                                                ft.commit();
-                                                                                return;
-
-                                                                            }
-                                                                        }
-
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        if (dan2.getTipOdgovora() == 12 && dan2.getOdgovoreno() == 0)
-                                                                        {
-
-                                                                                fragment = fm.findFragmentByTag("12");
-                                                                                if (fragment == null) {
-                                                                                    FragmentTransaction ft = fm.beginTransaction();
-                                                                                    fragment = new ThirteenthFragment(dan2, dan, segment);
-                                                                                    ft.addToBackStack(null);
-                                                                                    ft.replace(R.id.fragment_frame, fragment);
-                                                                                    ft.commit();
-                                                                                    return;
-
-                                                                                }
-
+                                                                    if (dan2.getRowid() == 140) {
+                                                                        fragment = fm.findFragmentByTag("11");
+                                                                        if (fragment == null) {
+                                                                            FragmentTransaction ft = fm.beginTransaction();
+                                                                            fragment = new Thirteenth1Fragment(dan2, dan, segment);
+                                                                            ft.addToBackStack(null);
+                                                                            ft.replace(R.id.fragment_frame, fragment);
+                                                                            ft.commit();
+                                                                            return;
 
                                                                         }
-
                                                                     }
 
 
+                                                                } else {
+                                                                    if (dan2.getTipOdgovora() == 12 && dan2.getOdgovoreno() == 0) {
+
+                                                                        fragment = fm.findFragmentByTag("12");
+                                                                        if (fragment == null) {
+                                                                            FragmentTransaction ft = fm.beginTransaction();
+                                                                            fragment = new ThirteenthFragment(dan2, dan, segment);
+                                                                            ft.addToBackStack(null);
+                                                                            ft.replace(R.id.fragment_frame, fragment);
+                                                                            ft.commit();
+                                                                            return;
+
+                                                                        }
+
+
+                                                                    }
                                                                 }
-
                                                             }
                                                         }
                                                     }
-
+                                                }
                                             }
                                         }
                                     }
-
                                 }
-
-
                             }
-
-
                         }
-
-
-
                     }
                 }
-
             }
+
 
 
 
@@ -1202,16 +1177,6 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                 }
             }
-//            else
-//            {
-//                if (segment!=1) {
-//                    dbHelper.openDataBase();
-//                    ContentValues iuValues = new ContentValues();
-//                    iuValues.put("Zapocet", 2);
-//                    dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment=" + segment + " AND  Dan=2", null, SQLiteDatabase.CONFLICT_ROLLBACK);
-//                    dbHelper.close();
-//                }
-//            }
 
             switch (segment) {
                 case 1:
@@ -1394,48 +1359,6 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
-
-                                    ZatvoriSegmentDan2();
-                                    NoviSegment();
-                                    dialog.dismiss();
-                                    ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
-                                }
-                            })
-
-                            .show();
-
-                    break;
-                case 6:
-
-                    txtCestitamo.setText("Čestitamo, uspešno ste završili segment Sektor za poslovne aplikacije i Sektor ICT i operativnog poslovanja");
-                    new AlertDialog.Builder(mContext)
-                            // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                            .setView(dialogView1)
-                            .setCancelable(false)
-
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    ZatvoriSegmentDan2();
-                                    NoviSegment();
-                                    dialog.dismiss();
-                                    ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
-
-                                }
-                            })
-
-                            .show();
-
-                    break;
-                case 7:
-
-                    txtCestitamo.setText("Čestitamo, uspešno ste završili segment Pravnih poslova");
-                    new AlertDialog.Builder(mContext)
-                            // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                            .setView(dialogView1)
-                            .setCancelable(false)
-
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
                                     new AlertDialog.Builder(mContext)
                                             .setTitle("                           ČESTITAMO, USPEŠNO STE ZAVRŠILI 2.DAN")
                                             .setView(dialogView)
@@ -1458,7 +1381,6 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                                     finish();
                                                     System.exit(0);
 
-
                                                 }
                                             })
 
@@ -1476,7 +1398,6 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                 default:
 
             }
-
 
         }
         catch(Exception ex)
@@ -1499,15 +1420,13 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
     }
 
-    private void Dan3()
-    {
+    private void Dan3() {
         try {
 
             if (ZapocetiSegment(3))
                 return;
 
-            if (segment==0)
-            {
+            if (segment == 0) {
                 fragment = fm.findFragmentByTag("IzborSegmenta");
                 if (fragment == null) {
                     fm = getSupportFragmentManager();
@@ -1518,17 +1437,15 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                     ft.commit();
                     return;
                 }
-            }
-            else
-            {
+            } else {
 
                 fm = getSupportFragmentManager();
                 Cursor c;
-                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan3 where Segment="+segment+" Order by CAST(RB as int)";
+                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan3 where Segment=" + segment + " Order by CAST(RB as int)";
                 dbHelper.openDataBase();
                 c = dbHelper.myDataBase.rawQuery(sql, null);
 
-                listDan=new ArrayList<>();
+                listDan = new ArrayList<>();
 
                 if (c.moveToFirst()) {
                     do {
@@ -1549,13 +1466,13 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                 c.close();
 
 
-                for (Dan dan2: listDan) {
+                for (Dan dan2 : listDan) {
 
                     if (dan2.getTipOdgovora() == 1 && dan2.getOdgovoreno() == 0) {
                         fragment = fm.findFragmentByTag("myFragmentTag");
                         if (fragment == null) {
                             FragmentTransaction ft = fm.beginTransaction();
-                            fragment = new FirstFragment(dan2,dan,segment);
+                            fragment = new FirstFragment(dan2, dan, segment);
                             ft.addToBackStack(null);
                             ft.replace(R.id.fragment_frame, fragment);
                             ft.commit();
@@ -1567,7 +1484,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             fragment = fm.findFragmentByTag("2");
                             if (fragment == null) {
                                 FragmentTransaction ft = fm.beginTransaction();
-                                fragment = new SecondFragment(dan2,dan,segment);
+                                fragment = new SecondFragment(dan2, dan, segment);
                                 ft.addToBackStack(null);
                                 ft.replace(R.id.fragment_frame, fragment);
                                 ft.commit();
@@ -1580,7 +1497,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                 fragment = fm.findFragmentByTag("3");
                                 if (fragment == null) {
                                     FragmentTransaction ft = fm.beginTransaction();
-                                    fragment = new ThirdFragment(dan2,dan,segment);
+                                    fragment = new ThirdFragment(dan2, dan, segment);
                                     ft.addToBackStack(null);
                                     ft.replace(R.id.fragment_frame, fragment);
                                     ft.commit();
@@ -1589,25 +1506,54 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                 }
 
                             } else {
-                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0) {
-                                    fragment = fm.findFragmentByTag("4");
-                                    if (fragment == null) {
-                                        FragmentTransaction ft = fm.beginTransaction();
-                                        fragment = new FourthFragment(dan2,dan,segment);
-                                        ft.addToBackStack(null);
-                                        ft.replace(R.id.fragment_frame, fragment);
-                                        ft.commit();
-                                        return;
+//                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0) {
+//                                    fragment = fm.findFragmentByTag("4");
+//                                    if (fragment == null) {
+//                                        FragmentTransaction ft = fm.beginTransaction();
+//                                        fragment = new FourthFragment(dan2, dan, segment);
+//                                        ft.addToBackStack(null);
+//                                        ft.replace(R.id.fragment_frame, fragment);
+//                                        ft.commit();
+//                                        return;
+//
+//                                    }
+//
+//                                }
+                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0 ) {
+                                    if (proc == false  &&  dan2.getRowid() == 127  ) {
+                                        fragment = fm.findFragmentByTag("Zadatak");
+                                        if (fragment == null) {
+                                            fm = getSupportFragmentManager();
+                                            FragmentTransaction ft = fm.beginTransaction();
+                                            fragment = new TaskDecimalNumberPercentageFragment();
+                                            ft.addToBackStack(null);
+                                            ft.replace(R.id.fragment_frame, fragment);
+                                            ft.commit();
+                                            return;
+
+                                        }
+                                    } else {
+
+                                            fragment = fm.findFragmentByTag("4");
+                                            if (fragment == null) {
+                                                FragmentTransaction ft = fm.beginTransaction();
+                                                fragment = new FourthFragment(dan2, dan, segment);
+                                                ft.addToBackStack(null);
+                                                ft.replace(R.id.fragment_frame, fragment);
+                                                ft.commit();
+                                                return;
+
+                                        }
 
                                     }
-
-                                } else {
+                                }
+                                else {
 
                                     if (dan2.getTipOdgovora() == 5 && dan2.getOdgovoreno() == 0) {
                                         fragment = fm.findFragmentByTag("5");
                                         if (fragment == null) {
                                             FragmentTransaction ft = fm.beginTransaction();
-                                            fragment = new FifthFragment(dan2,dan,segment);
+                                            fragment = new FifthFragment(dan2, dan, segment);
                                             ft.addToBackStack(null);
                                             ft.replace(R.id.fragment_frame, fragment);
                                             ft.commit();
@@ -1615,104 +1561,108 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                                         }
 
-                                    } else
-                                    {
+                                    } else {
 
-                                        if (dan2.getTipOdgovora() == 6 && dan2.getOdgovoreno() == 0)
-                                        {
+                                        if (dan2.getTipOdgovora() == 6 && dan2.getOdgovoreno() == 0) {
 
                                             fragment = fm.findFragmentByTag("6");
                                             if (fragment == null) {
                                                 FragmentTransaction ft = fm.beginTransaction();
-                                                fragment = new TaskFragment(dan2,dan,segment );
+                                                fragment = new TaskFragment(dan2, dan, segment);
                                                 ft.addToBackStack(null);
                                                 ft.replace(R.id.fragment_frame, fragment);
                                                 ft.commit();
                                                 return;
 
                                             }
-                                        }
-                                        else
-                                        {
+                                        } else {
                                             if (dan2.getTipOdgovora() == 7 && dan2.getOdgovoreno() == 0) {
                                                 fragment = fm.findFragmentByTag("7");
                                                 if (fragment == null) {
                                                     FragmentTransaction ft = fm.beginTransaction();
-                                                    fragment = new SeventhFragment(dan2,dan,segment );
+                                                    fragment = new SeventhFragment(dan2, dan, segment);
                                                     ft.addToBackStack(null);
                                                     ft.replace(R.id.fragment_frame, fragment);
                                                     ft.commit();
                                                     return;
 
                                                 }
-                                            }
-                                            else
-                                            {
+                                            } else {
 
 
                                                 if (dan2.getTipOdgovora() == 9 && dan2.getOdgovoreno() == 0) {
                                                     fragment = fm.findFragmentByTag("9");
                                                     if (fragment == null) {
                                                         FragmentTransaction ft = fm.beginTransaction();
-                                                        fragment = new NinthFragment(dan2,dan,segment );
+                                                        fragment = new NinthFragment(dan2, dan, segment);
                                                         ft.addToBackStack(null);
                                                         ft.replace(R.id.fragment_frame, fragment);
                                                         ft.commit();
                                                         return;
 
                                                     }
-                                                }
-                                                else
-                                                {
+                                                } else {
                                                     if (dan2.getTipOdgovora() == 8 && dan2.getOdgovoreno() == 0) {
                                                         fragment = fm.findFragmentByTag("8");
                                                         if (fragment == null) {
                                                             FragmentTransaction ft = fm.beginTransaction();
-                                                            fragment = new EighthFragment(dan2,dan,segment );
+                                                            fragment = new EighthFragment(dan2, dan, segment);
                                                             ft.addToBackStack(null);
                                                             ft.replace(R.id.fragment_frame, fragment);
                                                             ft.commit();
                                                             return;
 
                                                         }
-                                                    }
-
-                                                    else
-                                                    {
+                                                    } else {
                                                         if (dan2.getTipOdgovora() == 10 && dan2.getOdgovoreno() == 0) {
                                                             fragment = fm.findFragmentByTag("8");
                                                             if (fragment == null) {
                                                                 FragmentTransaction ft = fm.beginTransaction();
-                                                                fragment = new TenthFragment(dan2,dan,segment );
+                                                                fragment = new TenthFragment(dan2, dan, segment);
                                                                 ft.addToBackStack(null);
                                                                 ft.replace(R.id.fragment_frame, fragment);
                                                                 ft.commit();
                                                                 return;
 
                                                             }
-                                                        }
-                                                        else
-                                                        {
+                                                        } else {
                                                             if (dan2.getTipOdgovora() == 11 && dan2.getOdgovoreno() == 0) {
                                                                 fragment = fm.findFragmentByTag("11");
                                                                 if (fragment == null) {
                                                                     FragmentTransaction ft = fm.beginTransaction();
-                                                                    fragment = new EleventhFragment(dan2,dan,segment );
+                                                                    fragment = new EleventhFragment(dan2, dan, segment);
                                                                     ft.addToBackStack(null);
                                                                     ft.replace(R.id.fragment_frame, fragment);
                                                                     ft.commit();
                                                                     return;
 
                                                                 }
-                                                            }
+                                                            } else {
+                                                                if (dan2.getRowid() == 91 && dan2.getOdgovoreno() == 0) {
+                                                                    fragment = fm.findFragmentByTag("11");
+                                                                    if (fragment == null) {
+                                                                        FragmentTransaction ft = fm.beginTransaction();
+                                                                        fragment = new Thirteenth2Fragment(dan2, dan, segment);
+                                                                        ft.addToBackStack(null);
+                                                                        ft.replace(R.id.fragment_frame, fragment);
+                                                                        ft.commit();
+                                                                        return;
 
+                                                                    }
+                                                                }
+
+
+
+                                                            }
                                                         }
                                                     }
-                                                }
 
+                                                }
                                             }
                                         }
+
                                     }
+
 
                                 }
 
@@ -1721,335 +1671,310 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
 
                         }
-
-
-
                     }
+
                 }
 
-            }
+                switch (segment) {
+
+                    case 1:
+
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Sektor za poslovne aplikacije i Sektor ICT i operativnog poslovanja");
+                        new AlertDialog.Builder(mContext)
+                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                .setView(dialogView1)
+                                .setCancelable(false)
+
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ZatvoriSegmentDan3();
+                                        NoviSegment();
+                                        dialog.dismiss();
+                                        ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+
+                                    }
+                                })
+
+                                .show();
+
+                        break;
+                    case 2:
+
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Pravnih poslova");
+                        new AlertDialog.Builder(mContext)
+                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                .setView(dialogView1)
+                                .setCancelable(false)
+
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ZatvoriSegmentDan3();
+                                        NoviSegment();
+                                        dialog.dismiss();
+                                        ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+
+                                    }
+                                })
+
+                                .show();
+
+                        break;
+                    case 3:
+
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Logistika");
+                        new AlertDialog.Builder(mContext)
+                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                .setView(dialogView1)
+                                .setCancelable(false)
+
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ZatvoriSegmentDan3();
+                                        NoviSegment();
+                                        dialog.dismiss();
+                                        ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+
+                                    }
+                                })
+
+                                .show();
 
 
-//            dbHelper.openDataBase();
-//            ContentValues iuValues = new ContentValues();
-//            iuValues.put("Zapocet", 2);
-//            dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment="+segment+ " AND  Dan=3" , null, SQLiteDatabase.CONFLICT_ROLLBACK);
-//            dbHelper.close();
+                        break;
+                    case 4:
+                        if (continueArray == false) {
+                            fragment = fm.findFragmentByTag("Zadatak");
+                            if (fragment == null) {
+                                fm = getSupportFragmentManager();
+                                FragmentTransaction ft = fm.beginTransaction();
+                                fragment = new ContinueArrayFragment();
+                                ft.addToBackStack(null);
+                                ft.replace(R.id.fragment_frame, fragment);
+                                ft.commit();
+                                return;
+
+                            }
+                        } else {
+
+                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment Veleprodaja");
+                            new AlertDialog.Builder(mContext)
+                                    // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                    .setView(dialogView1)
+                                    .setCancelable(false)
+
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int whichButton) {
+                                            ZatvoriSegmentDan3();
+                                            NoviSegment();
+                                            dialog.dismiss();
+                                            ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+
+                                        }
+                                    })
+
+                                    .show();
+
+                        }
+
+                        break;
+                    case 5:
+
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment VP IZ MP Zmaj");
+                        new AlertDialog.Builder(mContext)
+                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                .setView(dialogView1)
+                                .setCancelable(false)
+
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ZatvoriSegmentDan3();
+                                        NoviSegment();
+                                        dialog.dismiss();
+                                        ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+
+                                    }
+                                })
+
+                                .show();
+
+                        break;
+
+                    case 6:
+
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Idea London");
+                        new AlertDialog.Builder(mContext)
+                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                .setView(dialogView1)
+                                .setCancelable(false)
+
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ZatvoriSegmentDan3();
+                                        NoviSegment();
+                                        dialog.dismiss();
+                                        ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+
+                                    }
+                                })
+
+                                .show();
 
 
-            switch (segment) {
-                case 1:
+                        break;
 
-//                    new AlertDialog.Builder(mContext)
-//                            .setTitle("Čestitamo, uspešno ste završili segment Logistika")
-//                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int whichButton) {
-//                                    NoviSegment();
-//                                    dialog.dismiss();
-//
-//                                }
-//                            })
-//
-//                            .show();
-                    txtCestitamo.setText("Čestitamo, uspešno ste završili segment Logistika");
-                    new AlertDialog.Builder(mContext)
-                            // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                            .setView(dialogView1)
-                            .setCancelable(false)
+                    case 7:
 
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    ZatvoriSegmentDan3();
-                                    NoviSegment();
-                                    dialog.dismiss();
-                                    ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Idea 401 Super Beograđanka");
+                        new AlertDialog.Builder(mContext)
+                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+                                .setView(dialogView1)
+                                .setCancelable(false)
 
-                                }
-                            })
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ZatvoriSegmentDan3();
+                                        NoviSegment();
+                                        dialog.dismiss();
+                                        ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
 
-                            .show();
-
-
-                    break;
-                case 2:
-                                    if (continueArray==false)
-                                    {
-                                        fragment = fm.findFragmentByTag("Zadatak");
+                                        fragment = fm.findFragmentByTag("IzborSegmenta");
                                         if (fragment == null) {
                                             fm = getSupportFragmentManager();
                                             FragmentTransaction ft = fm.beginTransaction();
-                                            fragment = new ContinueArrayFragment();
+                                            fragment = new IzborSegmentaFragment(dan, segment);
                                             ft.addToBackStack(null);
                                             ft.replace(R.id.fragment_frame, fragment);
                                             ft.commit();
-                                            return;
+
 
                                         }
-                                    }
-                                    else {
-
-                                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Veleprodaja");
-                                        new AlertDialog.Builder(mContext)
-                                                // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                                                .setView(dialogView1)
-                                                .setCancelable(false)
-
-                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                    public void onClick(DialogInterface dialog, int whichButton) {
-                                                        ZatvoriSegmentDan3();
-                                                        NoviSegment();
-                                                        dialog.dismiss();
-                                                        ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
-
-                                                    }
-                                                })
-
-                                                .show();
-
-
-//                                        new AlertDialog.Builder(mContext)
-//                                                .setTitle("Čestitamo, uspešno ste završili segment Veleprodaja")
-//                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                                    public void onClick(DialogInterface dialog, int whichButton) {
-//                                                        NoviSegment();
-//                                                        dialog.dismiss();
-//                                                    }
-//                                                })
-//
-//                                                .show();
-
-                                    }
-
-                    break;
-                case 3:
-                    if (proc==false)
-                    {
-                        fragment = fm.findFragmentByTag("Zadatak");
-                        if (fragment == null) {
-                            fm = getSupportFragmentManager();
-                            FragmentTransaction ft = fm.beginTransaction();
-                            fragment = new TaskDecimalNumberPercentageFragment();
-                            ft.addToBackStack(null);
-                            ft.replace(R.id.fragment_frame, fragment);
-                            ft.commit();
-                            return;
-
-                        }
-                    }
-                    else {
-
-                           // NoviSegment();
-
-                                        ZatvoriSegmentDan3();
-                                        NoviSegment();
-
-                    }
-
-                    break;
-
-                case 4:
-//
-                         ZatvoriSegmentDan3();
-                         NoviSegment();
-
-
-                    break;
-
-                case 5:
-//                    new AlertDialog.Builder(mContext)
-//                            .setTitle("Čestitamo, uspešno ste završili segment Idea London")
-//                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int whichButton) {
-//                                    NoviSegment();
-//                                    dialog.dismiss();
-//                                }
-//                            })
-//
-//                            .show();
-                    txtCestitamo.setText("Čestitamo, uspešno ste završili segment Idea London");
-                    new AlertDialog.Builder(mContext)
-                            // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                            .setView(dialogView1)
-                            .setCancelable(false)
-
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    ZatvoriSegmentDan3();
-                                    NoviSegment();
-                                    dialog.dismiss();
-                                    ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
-
-                                }
-                            })
-
-                            .show();
-
-
-
-                    break;
-
-                case 6:
-
-//                    new AlertDialog.Builder(mContext)
-//                            .setTitle("Čestitamo, uspešno ste završili segment Idea 401 Super Beograđanka")
-//                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int whichButton) {
-//                                    NoviSegment();
-//                                    dialog.dismiss();
-//                                }
-//                            })
-//
-//                            .show();
-
-                    txtCestitamo.setText("Čestitamo, uspešno ste završili segment Idea 401 Super Beograđanka");
-                    new AlertDialog.Builder(mContext)
-                            // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                            .setView(dialogView1)
-                            .setCancelable(false)
-
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    ZatvoriSegmentDan3();
-                                    NoviSegment();
-                                    dialog.dismiss();
-                                    ((ViewGroup)dialogView1.getParent()).removeView(dialogView1);
-
-                                    fragment = fm.findFragmentByTag("IzborSegmenta");
-                                    if (fragment == null) {
-                                        fm = getSupportFragmentManager();
-                                        FragmentTransaction ft = fm.beginTransaction();
-                                        fragment = new IzborSegmentaFragment(dan, segment);
-                                        ft.addToBackStack(null);
-                                        ft.replace(R.id.fragment_frame, fragment);
-                                        ft.commit();
 
 
                                     }
+                                })
+
+                                .show();
+
+                        break;
 
 
-                                }
-                            })
+                    default:
 
-                            .show();
-
-                    break;
+                }
+            }
 
 
-                default:
+            }
+        catch(Exception ex)
+            {
+                new AlertDialog.Builder(mContext)
+                        .setTitle("GRESKA!   " + ex.getMessage())
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
 
+                                dialog.dismiss();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_frame,
+                                        new KodeksFragment(dan, segment)).commit();
+                            }
+                        })
+
+                        .show();
+
+            }
+        finally{
+                dbHelper.close();
             }
 
 
         }
-        catch(Exception ex)
-        {
-            new AlertDialog.Builder(mContext)
-                    .setTitle("GRESKA!   "+ex.getMessage())
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
 
-                            dialog.dismiss();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_frame,
-                                    new KodeksFragment(dan, segment)).commit();
-                        }
-                    })
+        public static void storeDate (Context c){
 
-                    .show();
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            if (!sharedPreferences.contains("dateTime")) {
+                Date date = new Date();
+                Calendar calendar = new GregorianCalendar();
+                calendar.setTime(date);
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH) + 1;
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+                sharedPreferences.edit().putLong("dateTime", date.getTime()).apply();
+            }
 
         }
-        finally{
-            dbHelper.close();
-        }
 
+        public static boolean retrieveDate (Context mContext){
+            boolean ret = true;
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
 
-    }
+            Date myDate = new Date(sharedPreferences.getLong("dateTime", 0));
 
-    public static void storeDate(Context c){
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (!sharedPreferences.contains("dateTime")) {
             Date date = new Date();
             Calendar calendar = new GregorianCalendar();
             calendar.setTime(date);
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH) + 1;
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
-            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int yearn = calendar.get(Calendar.YEAR);
+            int monthn = calendar.get(Calendar.MONTH) + 1;
+            int dayn = calendar.get(Calendar.DAY_OF_MONTH);
+            int hourn = calendar.get(Calendar.HOUR_OF_DAY);
 
-            sharedPreferences.edit().putLong("dateTime", date.getTime()).apply();
+            Calendar c = Calendar.getInstance(); // use system date on first time for initialization.
+            c.setTime(myDate);
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH) + 1;
+            int day = c.get(Calendar.DAY_OF_MONTH);
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+
+            if (day == dayn) {
+                ret = false;
+                new AlertDialog.Builder(mContext)
+                        .setTitle("Aplikacijan je zaključana do sutra !")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                System.exit(0);
+                                dialog.dismiss();
+                            }
+                        })
+
+                        .show();
+            }
+            return ret;
+
         }
 
-    }
-
-    public static boolean retrieveDate(Context mContext) {
-        boolean ret=true;
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-
-        Date myDate = new Date(sharedPreferences.getLong("dateTime", 0));
-
-        Date date = new Date();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(date);
-        int yearn = calendar.get(Calendar.YEAR);
-        int monthn = calendar.get(Calendar.MONTH) + 1;
-        int dayn = calendar.get(Calendar.DAY_OF_MONTH);
-        int hourn = calendar.get(Calendar.HOUR_OF_DAY);
-
-        Calendar c = Calendar.getInstance(); // use system date on first time for initialization.
-        c.setTime(myDate);
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH) + 1;
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-
-        if (day==dayn )
+        private void ZatvoriSegmentDan1 ()
         {
-            ret=false;
-            new AlertDialog.Builder(mContext)
-                    .setTitle("Aplikacijan je zaključana do sutra !")
-                    .setCancelable(false)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
+            dbHelper.openDataBase();
+            ContentValues iuValues = new ContentValues();
+            iuValues.put("Zapocet", 2);
+            dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment=" + segment + " AND  Dan=1", null, SQLiteDatabase.CONFLICT_ROLLBACK);
+            dbHelper.close();
 
-                            System.exit(0);
-                            dialog.dismiss();
-                        }
-                    })
-
-                    .show();
         }
-        return ret;
+        private void ZatvoriSegmentDan2 ()
+        {
+            dbHelper.openDataBase();
+            ContentValues iuValues = new ContentValues();
+            iuValues.put("Zapocet", 2);
+            dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment=" + segment + " AND  Dan=2", null, SQLiteDatabase.CONFLICT_ROLLBACK);
+            dbHelper.close();
 
-    }
+        }
+        private void ZatvoriSegmentDan3 ()
+        {
+            dbHelper.openDataBase();
+            ContentValues iuValues = new ContentValues();
+            iuValues.put("Zapocet", 2);
+            dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment=" + segment + " AND  Dan=3", null, SQLiteDatabase.CONFLICT_ROLLBACK);
+            dbHelper.close();
 
-    private void ZatvoriSegmentDan1()
-    {
-        dbHelper.openDataBase();
-        ContentValues iuValues = new ContentValues();
-        iuValues.put("Zapocet", 2);
-        dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment="+segment+ " AND  Dan=1" , null, SQLiteDatabase.CONFLICT_ROLLBACK);
-        dbHelper.close();
+        }
 
-    }
-    private void ZatvoriSegmentDan2()
-    {
-        dbHelper.openDataBase();
-        ContentValues iuValues = new ContentValues();
-        iuValues.put("Zapocet", 2);
-        dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment="+segment+ " AND  Dan=2" , null, SQLiteDatabase.CONFLICT_ROLLBACK);
-        dbHelper.close();
 
-    }
-    private void ZatvoriSegmentDan3()
-    {
-        dbHelper.openDataBase();
-        ContentValues iuValues = new ContentValues();
-        iuValues.put("Zapocet", 2);
-        dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment="+segment+ " AND  Dan=3" , null, SQLiteDatabase.CONFLICT_ROLLBACK);
-        dbHelper.close();
-
-    }
 
 
 
