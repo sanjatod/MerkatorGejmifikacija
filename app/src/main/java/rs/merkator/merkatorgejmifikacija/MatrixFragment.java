@@ -109,7 +109,7 @@ public class MatrixFragment extends Fragment {
                 int number=0;
                 if (i==0 && j==0)number=3;
                 if (i==0 && j==1)number=-99;
-                if (i==0 && j==2)number=7;
+                if (i==0 && j==2)number=27;
                 if (i==1 && j==0)number=-2;
                 if (i==1 && j==1)number=4;
                 if (i==1 && j==2)number=-8;

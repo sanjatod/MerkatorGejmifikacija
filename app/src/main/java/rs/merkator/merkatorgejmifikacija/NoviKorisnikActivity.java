@@ -68,7 +68,7 @@ public class NoviKorisnikActivity extends AppCompatActivity {
 
 
         List<String> spinnerArraySluzba =  new ArrayList<String>();
-        spinnerArraySluzba.add("Poslovno područje ljudskih resursa");
+        spinnerArraySluzba.add("Područje ljudskih resursa");
         spinnerArraySluzba.add("Poslovno područje maloprodaje");
         spinnerArraySluzba.add("Poslovno područje veleprodaje");
         spinnerArraySluzba.add("Poslovno područje logistika");

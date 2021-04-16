@@ -60,7 +60,7 @@ public class OfficeMenagerFragment extends Fragment {
 
         etxtOdgovor.requestFocus();
         txtPitanja = view.findViewById(R.id.txtTextPitanja);
-        txtPitanja.setText("Idite do ingopulta i raspitajte te se gde je kancelarija menadžera objekta Roda Mega 428\n Ime i prezime osobe koja vam je pomogla:");
+        txtPitanja.setText("Idite do infopulta i raspitajte te se gde je kancelarija menadžera objekta Roda Mega 428\n Ime i prezime osobe koja vam je pomogla:");
         view.findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

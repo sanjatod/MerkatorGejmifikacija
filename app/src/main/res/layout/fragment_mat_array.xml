@@ -25,7 +25,7 @@
         android:text=" ZADATAK \n Pred vama se nalazi matematičko logički niz. \n Umesto znaka pitanja unestite nedostajući broj." />
 
     <LinearLayout
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="100dp"
@@ -60,7 +60,7 @@
             android:text="8" />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
         android:id="@+id/linear2"
         android:layout_toRightOf="@+id/linear1"
@@ -92,12 +92,46 @@
             android:layout_height="wrap_content"
             android:text="+"  />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="132dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
         android:id="@+id/linear3"
         android:layout_marginTop="30dp"
         android:layout_toRightOf="@+id/linear2"
+        android:layout_below="@id/txtTextPitanja"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="4" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="6" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="11" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:id="@+id/linear4"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/linear3"
         android:layout_below="@id/txtTextPitanja"
         android:orientation="vertical">
 
@@ -134,7 +168,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/linear3"
+        android:layout_toRightOf="@+id/linear4"
         android:layout_below="@id/txtTextPitanja"
         android:src="@drawable/dan_1" />
 

@@ -14,7 +14,7 @@
         android:layout_height="105dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/dan_1" />
+        android:src="@drawable/dan_drugi" />
 
     <TextView
         android:id="@+id/txtTextPitanja"

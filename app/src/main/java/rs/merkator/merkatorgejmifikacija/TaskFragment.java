@@ -140,7 +140,7 @@ public class TaskFragment extends Fragment {
 
 
                     File file = null;
-                    file = new File(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/kontroling za gejm.pdf");
+                    file = new File(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/Gejmifikacija sektor kontrole RM poslovanja.docx");
                     //Toast.makeText(getApplicationContext(), file.toString() , Toast.LENGTH_LONG).show();
                     if (file.exists()) {
 
@@ -148,7 +148,32 @@ public class TaskFragment extends Fragment {
                             Uri path = Uri.fromFile(file);
 
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setDataAndType(path, "application/pdf");//pdf
+                            intent.setDataAndType(path, "application/docx");//pdf
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                            startActivity(intent);
+                        } catch (ActivityNotFoundException ex)
+                        {
+                            String s="";
+                        }
+                    }
+                }
+
+                if (d==2 && s==4 && dan.getRowid()==153) {
+                    //kontroling za gejm.pdf
+                    StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+                    StrictMode.setVmPolicy(builder.build());
+
+
+                    File file = null;
+                    file = new File(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/SEKTOR ZA OPŠTE POSLOVE I NEROBNE NABAVKE.docx");
+                    //Toast.makeText(getApplicationContext(), file.toString() , Toast.LENGTH_LONG).show();
+                    if (file.exists()) {
+
+                        try {
+                            Uri path = Uri.fromFile(file);
+
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setDataAndType(path, "application/docx");//pdf
                             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                             startActivity(intent);
                         } catch (ActivityNotFoundException ex)

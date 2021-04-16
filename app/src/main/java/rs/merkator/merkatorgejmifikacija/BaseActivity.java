@@ -773,7 +773,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             break;
 
                         case 5:
-                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor HR controlling-a");
+                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor HR operacija-a");
                             new AlertDialog.Builder(mContext)
                                     .setCancelable(false)
                                     .setView(dialogView1)
@@ -1142,6 +1142,21 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                                                         }
 
 
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if (dan2.getTipOdgovora() == 15 && dan2.getOdgovoreno() == 0) {
+                                                                            fragment = fm.findFragmentByTag("myFragmentTag");
+                                                                            if (fragment == null) {
+                                                                                FragmentTransaction ft = fm.beginTransaction();
+                                                                                fragment = new FifteenthFragment(dan2, dan, segment);
+                                                                                ft.addToBackStack(null);
+                                                                                ft.replace(R.id.fragment_frame, fragment);
+                                                                                ft.commit();
+                                                                                return;
+
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }

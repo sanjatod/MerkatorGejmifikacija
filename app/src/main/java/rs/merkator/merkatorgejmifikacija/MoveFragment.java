@@ -32,6 +32,7 @@ public class MoveFragment extends Fragment {
     private int segment;
     TextView txtWelcome;
     ImageView imageViewOpenPDF;
+    boolean click=false;
 
     public MoveFragment(int dan, int segment)
     {
@@ -95,6 +96,7 @@ public class MoveFragment extends Fragment {
                         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
                         StrictMode.setVmPolicy(builder.build());
                         File file = null;
+                        click=true;
 
                         if (dan == 1) {
                             switch (segment) {
@@ -167,20 +169,38 @@ public class MoveFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        try
-                        {
+                        if (click == true) {
+                            try {
 
-                            dbHelper.openDataBase();
-                            ContentValues iuValues = new ContentValues();
-                            iuValues.put("Segment", segment+1);
-                            iuValues.put("Dan", 1);
-                            iuValues.put("Zapocet", 1);
-                            dbHelper.myDataBase.insertOrThrow("AkcijaSegment",null,iuValues);
+                                dbHelper.openDataBase();
+                                ContentValues iuValues = new ContentValues();
+                                iuValues.put("Segment", segment + 1);
+                                iuValues.put("Dan", 1);
+                                iuValues.put("Zapocet", 1);
+                                dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                            } catch (Exception ex) {
+                                new AlertDialog.Builder(getActivity())
+                                        .setTitle("GRESKA!   " + ex.getMessage())
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                dialog.dismiss();
+                                            }
+                                        })
+
+                                        .show();
+                            } finally {
+
+                                dbHelper.close();
+                            }
+                            BaseActivity.segment = +1;
+
+                            getActivity().onBackPressed();
+
                         }
-                        catch (Exception ex)
+                        else
                         {
                             new AlertDialog.Builder(getActivity())
-                                    .setTitle("GRESKA!   "+ex.getMessage())
+                                    .setTitle("Pročitajte tekst/pogledajte video!" )
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int whichButton) {
                                             dialog.dismiss();
@@ -189,15 +209,8 @@ public class MoveFragment extends Fragment {
 
                                     .show();
                         }
-                        finally {
-
-                            dbHelper.close();
-                        }
-                        BaseActivity.segment=+1;
-
-                        getActivity().onBackPressed();
-
                     }
+
                 });
     }
 }
