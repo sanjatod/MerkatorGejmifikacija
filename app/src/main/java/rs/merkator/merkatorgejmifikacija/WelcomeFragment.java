@@ -622,7 +622,7 @@ public class WelcomeFragment extends Fragment {
 
                     break;
                 case 2:
-                    txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  SLUŽBA REGRUTACIJE I SELEKCIJE");
+                    txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Segment\n  SEKTOR REGRUTACIJE I SELEKCIJE");
 
                     break;
 

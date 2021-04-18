@@ -96,8 +96,10 @@ public class FirstFragment extends Fragment {
             imageViewSlikaNaPitanju.setVisibility(View.GONE);
         }
 
-        // adra srbija
+        // adra srbija  One assessment  Fondacija Ane i Vlade Divac
         if (dan.getTacanOdgovor()!=null &&  dan.getTacanOdgovor().equals("Adra Srbija")) imageViewSlikaNaPitanju.setVisibility(View.GONE);
+        if (dan.getTacanOdgovor()!=null &&  dan.getTacanOdgovor().equals("One assessment")) imageViewSlikaNaPitanju.setVisibility(View.GONE);
+        if (dan.getTacanOdgovor()!=null &&  dan.getTacanOdgovor().equals("Fondacija Ane i Vlade Divac")) imageViewSlikaNaPitanju.setVisibility(View.GONE);
 
         int i=1;
         if (dan.getOdgovori()!=null)
@@ -205,7 +207,7 @@ public class FirstFragment extends Fragment {
                     }
                 }
 
-              //res=true;
+              res=true;
                     if (res)
                     {
 
@@ -221,6 +223,28 @@ public class FirstFragment extends Fragment {
                                             imageViewSlikaNaPitanju.setImageBitmap(bmp);
                                        }
                             }
+
+                        if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("One assessment"))
+                        {
+
+
+                            Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/OneAssessment.png");
+                            if (bmp!=null) {
+                                imageViewSlikaNaPitanju.setVisibility(View.VISIBLE);
+                                imageViewSlikaNaPitanju.setImageBitmap(bmp);
+                            }
+                        }
+
+                        if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("Fondacija Ane i Vlade Divac"))
+                        {
+
+
+                            Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/Divac.jpg");
+                            if (bmp!=null) {
+                                imageViewSlikaNaPitanju.setVisibility(View.VISIBLE);
+                                imageViewSlikaNaPitanju.setImageBitmap(bmp);
+                            }
+                        }
 
                         try {
                         dbHelper.openDataBase();
@@ -243,6 +267,38 @@ public class FirstFragment extends Fragment {
                         }
 
                         if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("Adra Srbija"))
+                        {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+
+                                @Override
+                                public void run() {
+
+                                    getActivity().onBackPressed();
+                                }
+                            }, 1000);
+                        }
+                        else
+                        {
+                            getActivity().onBackPressed();
+                        }
+                        if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("One assessment"))
+                        {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+
+                                @Override
+                                public void run() {
+
+                                    getActivity().onBackPressed();
+                                }
+                            }, 1000);
+                        }
+                        else
+                        {
+                            getActivity().onBackPressed();
+                        }
+                        if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("Fondacija Ane i Vlade Divac"))
                         {
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {

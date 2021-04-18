@@ -177,7 +177,7 @@ public class IzborDanaFragment extends Fragment {
                             getActivity().onBackPressed();
 
                         }
-                    }
+                   }
                 });
 
         view.findViewById(R.id.imgTreciDan).setOnClickListener(

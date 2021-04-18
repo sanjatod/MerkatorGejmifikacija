@@ -38,6 +38,7 @@ public class SixteenthFragment extends Fragment {
     TextView txtCestitamo;
     int d,s;
     boolean rez=false;
+    CheckBox ch1, ch2,ch3,ch4,ch5,ch6;
 
     public SixteenthFragment(Dan dan, int d, int s)
 
@@ -81,15 +82,29 @@ public class SixteenthFragment extends Fragment {
         if (d==2) imgDay.setImageDrawable(getResources().getDrawable(R.drawable.dan_drugi));
         if (d==3) imgDay.setImageDrawable(getResources().getDrawable(R.drawable.dan_treci));
 
-
+        txtPitanja = view.findViewById(R.id.txtTextPitanja);
+        txtPitanja.setText(dan.getTekstPitanja());
+         ch1=(CheckBox) view.findViewById(R.id.checkBox1);
+         ch2=(CheckBox) view.findViewById(R.id.checkBox2);
+         ch3=(CheckBox) view.findViewById(R.id.checkBox3);
+         ch4=(CheckBox) view.findViewById(R.id.checkBox4);
+         ch5=(CheckBox) view.findViewById(R.id.checkBox5);
+         ch6=(CheckBox) view.findViewById(R.id.checkBox6);
 
 
         view.findViewById(R.id.btnNext).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+//                        CheckBox ch1=(CheckBox) view.findViewById(R.id.checkBox1);
+//                        CheckBox ch2=(CheckBox) view.findViewById(R.id.checkBox2);
+//                        CheckBox ch3=(CheckBox) view.findViewById(R.id.checkBox3);
+//                        CheckBox ch4=(CheckBox) view.findViewById(R.id.checkBox4);
+//                        CheckBox ch5=(CheckBox) view.findViewById(R.id.checkBox5);
+//                        CheckBox ch6=(CheckBox) view.findViewById(R.id.checkBox6);
 
-                        if(rez) {
+                        if(!ch1.isChecked()&&!ch2.isChecked()&&!ch3.isChecked()&&!ch4.isChecked()&&!ch5.isChecked()&&ch6.isChecked())
+                        {
                             DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
                             try {
                                 dbHelper.openDataBase();

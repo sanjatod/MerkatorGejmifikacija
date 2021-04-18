@@ -8,13 +8,6 @@ import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,21 +18,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FourthFragment extends Fragment {
+public class SeventeenthFragment extends Fragment {
     RecyclerView checktextGrid;
     Dan dan;
-    TextView txtPitanja;
+    TextView txtPitanja, txtIspod;
     List<OdgovorTipa4> listaOdgovora;
     ImageView imageViewSlikaNaPitanju,imgDay;
     View dialogView1;
     TextView txtCestitamo;
     int d,s;
 
-    public FourthFragment(Dan dan, int d, int s)
+    public SeventeenthFragment(Dan dan, int d, int s)
 
     {
         this.dan=dan;
@@ -67,16 +66,9 @@ public class FourthFragment extends Fragment {
         dialogView1= inflater.inflate(R.layout.alertdialog1, null);
         // Inflate the layout for this fragment
 
-//||  (d == 1 && dan.getRowid() == 76)
-          if ((d == 3 && s == 6 && dan.getRowid() == 79) || (d == 3 && s == 4 && dan.getRowid() == 57) || (d == 1 && dan.getRowid() == 35) ) {
-              return inflater.inflate(R.layout.fragment_fourth1, container, false);
 
-          } else
-              if(d == 1 && dan.getRowid() == 76  || (d == 3 && dan.getRowid() == 82) )
-                  return inflater.inflate(R.layout.fragment_fourth2, container, false);
-                  else
 
-              return inflater.inflate(R.layout.fragment_fourth, container, false);
+              return inflater.inflate(R.layout.fragment_seventeenth, container, false);
 
 
     }
@@ -121,6 +113,8 @@ public class FourthFragment extends Fragment {
 
         txtPitanja = view.findViewById(R.id.txtTextPitanja);
         txtPitanja.setText(dan.getTekstPitanja());
+        txtIspod = view.findViewById(R.id.txtTextIspod);
+        txtIspod.setText(dan.getTekstIspod());
         checktextGrid=view.findViewById(R.id.rvCheckText);
         checktextGrid.setHasFixedSize(true);
         checktextGrid.setNestedScrollingEnabled(false);
@@ -183,24 +177,9 @@ public class FourthFragment extends Fragment {
                                 dbHelper.close();
                             }
 
-                            if (d==1 &&  dan.getRowid()==63)
-                            {
-                                txtCestitamo.setText("Objašnjenje za self scen: Želeći da odgovori na potrebe savremenog načina života, Mercator-S konstantno radi na unapređenju brzine kupovine.Kompanija se na tržištu izdvaja po tome što je u odabranim prodavnicama obezbedila samouslužne kase na kojima kupci sami mogu skenirati proizvode i platiti račun. Samo nekoliko godina kasnije odabrani obejkti dobili su Sken za tren, tehnološko rešenje koje potrošačima omogućava da već tokom kupovine skeniraju proizvode, a na posebno obeleženoj kasi, bez čekanja u redu, samo plate iznos računa.");
-                                new AlertDialog.Builder(getActivity())
-                                        .setView(dialogView1)
-                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int whichButton) {
-                                                getActivity().onBackPressed();
-                                                dialog.dismiss();
-                                            }
-                                        })
 
-                                        .show();
-                            }
-                            else
-                            {
                                 getActivity().onBackPressed();
-                            }
+
 
 
                         }
@@ -236,9 +215,9 @@ public class FourthFragment extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             if(d == 1 && dan.getRowid() == 76)
-            return new PitanjeTipa4RecyclerViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip31, parent, false));
+            return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip31, parent, false));
             else
-            return new PitanjeTipa4RecyclerViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip3, parent, false));
+            return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip3, parent, false));
         }
         class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -255,7 +234,7 @@ public class FourthFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull PitanjeTipa4RecyclerViewAdapter.ViewHolder viewHolder, final int position) {
+        public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
 
 
             final OdgovorTipa4 odgovor = listaOdgovora.get(position);

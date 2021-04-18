@@ -10,9 +10,10 @@ public class Dan {
     private String Odgovori;
     private int Odgovoreno;
     private int segment;
+    private String tekstIspod;
 
     public Dan(int rowid, int RB, String tekstPitanja, String slika, int tipOdgovora,
-               String tacanOdgovor, String odgovori, int odgovoreno, int segment) {
+               String tacanOdgovor, String odgovori, int odgovoreno, int segment, String tekstIspod) {
         this.rowid=rowid;
         this.RB = RB;
         TekstPitanja = tekstPitanja;
@@ -22,6 +23,7 @@ public class Dan {
         Odgovori = odgovori;
         Odgovoreno=odgovoreno;
         this.segment=segment;
+        this.tekstIspod=tekstIspod;
 
     }
 
@@ -95,6 +97,14 @@ public class Dan {
 
     public void setSegment(int segment) {
         this.segment = segment;
+    }
+
+    public String getTekstIspod() {
+        return tekstIspod;
+    }
+
+    public void setTekstIspod(String tekstIspod) {
+        this.tekstIspod = tekstIspod;
     }
 }
 

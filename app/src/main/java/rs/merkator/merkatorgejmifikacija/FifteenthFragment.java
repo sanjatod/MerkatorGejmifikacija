@@ -55,7 +55,7 @@ public class FifteenthFragment extends Fragment {
         this.container=container;
         // Inflate the layout for this fragment
         dbHelper=new DataBaseHelper(getActivity());
-        view=inflater.inflate(R.layout.fragment_first, container, false);
+        view=inflater.inflate(R.layout.fragment_first_3, container, false);
         return view;
     }
 
@@ -161,6 +161,7 @@ public class FifteenthFragment extends Fragment {
                     finally {
 
                         dbHelper.close();
+                        getActivity().onBackPressed();
                     }
 
 

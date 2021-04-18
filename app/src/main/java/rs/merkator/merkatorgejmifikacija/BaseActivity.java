@@ -468,7 +468,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                     fm = getSupportFragmentManager();
                     Cursor c;
-                    String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan1 where Segment="+segment+" Order by CAST(RB as int) ";
+                    String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment,TekstIspodPitanja FROM Dan1 where Segment="+segment+" Order by CAST(RB as int) ";
                     dbHelper.openDataBase();
                     c = dbHelper.myDataBase.rawQuery(sql, null);
 
@@ -485,7 +485,8 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                     c.getString(c.getColumnIndex("TacanOdgovor")),
                                     c.getString(c.getColumnIndex("PonudjeniOdgovori")),
                                     c.getInt(c.getColumnIndex("Odgovoreno")),
-                                    c.getInt(c.getColumnIndex("Segment")));
+                                    c.getInt(c.getColumnIndex("Segment")),
+                                    c.getString(c.getColumnIndex("TekstIspodPitanja")));
                             listDan.add(dan1);
                         } while (c.moveToNext());
                     }
@@ -932,7 +933,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                 fm = getSupportFragmentManager();
                 Cursor c;
-                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan2 where Segment=" + segment + " Order by CAST(RB as int)";
+                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment,TekstIspodPitanja FROM Dan2 where Segment=" + segment + " Order by CAST(RB as int)";
                 dbHelper.openDataBase();
                 c = dbHelper.myDataBase.rawQuery(sql, null);
 
@@ -949,7 +950,9 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                 c.getString(c.getColumnIndex("TacanOdgovor")),
                                 c.getString(c.getColumnIndex("PonudjeniOdgovori")),
                                 c.getInt(c.getColumnIndex("Odgovoreno")),
-                                c.getInt(c.getColumnIndex("Segment")));
+                                c.getInt(c.getColumnIndex("Segment")),
+                                c.getString(c.getColumnIndex("TekstIspodPitanja")));
+
                         listDan.add(dan2);
                     } while (c.moveToNext());
                 }
@@ -1155,6 +1158,36 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                                                                 ft.commit();
                                                                                 return;
 
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if (dan2.getTipOdgovora() == 16 && dan2.getOdgovoreno() == 0) {
+                                                                                fragment = fm.findFragmentByTag("myFragmentTag");
+                                                                                if (fragment == null) {
+                                                                                    FragmentTransaction ft = fm.beginTransaction();
+                                                                                    fragment = new SixteenthFragment(dan2, dan, segment);
+                                                                                    ft.addToBackStack(null);
+                                                                                    ft.replace(R.id.fragment_frame, fragment);
+                                                                                    ft.commit();
+                                                                                    return;
+
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if (dan2.getTipOdgovora() == 17 && dan2.getOdgovoreno() == 0) {
+                                                                                    fragment = fm.findFragmentByTag("myFragmentTag");
+                                                                                    if (fragment == null) {
+                                                                                        FragmentTransaction ft = fm.beginTransaction();
+                                                                                        fragment = new SeventeenthFragment(dan2, dan, segment);
+                                                                                        ft.addToBackStack(null);
+                                                                                        ft.replace(R.id.fragment_frame, fragment);
+                                                                                        ft.commit();
+                                                                                        return;
+
+                                                                                    }
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
@@ -1456,7 +1489,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                 fm = getSupportFragmentManager();
                 Cursor c;
-                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment FROM Dan3 where Segment=" + segment + " Order by CAST(RB as int)";
+                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment,TekstIspodPitanja FROM Dan3 where Segment=" + segment + " Order by CAST(RB as int)";
                 dbHelper.openDataBase();
                 c = dbHelper.myDataBase.rawQuery(sql, null);
 
@@ -1473,7 +1506,8 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                 c.getString(c.getColumnIndex("TacanOdgovor")),
                                 c.getString(c.getColumnIndex("PonudjeniOdgovori")),
                                 c.getInt(c.getColumnIndex("Odgovoreno")),
-                                c.getInt(c.getColumnIndex("Segment")));
+                                c.getInt(c.getColumnIndex("Segment")),
+                                c.getString(c.getColumnIndex("TekstIspodPitanja")));
                         listDan.add(dan1);
                     } while (c.moveToNext());
                 }
@@ -1534,20 +1568,20 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 //                                    }
 //
 //                                }
-                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0 ) {
-                                    if (proc == false  &&  dan2.getRowid() == 127  ) {
-                                        fragment = fm.findFragmentByTag("Zadatak");
-                                        if (fragment == null) {
-                                            fm = getSupportFragmentManager();
-                                            FragmentTransaction ft = fm.beginTransaction();
-                                            fragment = new TaskDecimalNumberPercentageFragment();
-                                            ft.addToBackStack(null);
-                                            ft.replace(R.id.fragment_frame, fragment);
-                                            ft.commit();
-                                            return;
-
-                                        }
-                                    } else {
+//                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0 ) {
+//                                    if (proc == false  &&  dan2.getRowid() == 127  ) {
+//                                        fragment = fm.findFragmentByTag("Zadatak");
+//                                        if (fragment == null) {
+//                                            fm = getSupportFragmentManager();
+//                                            FragmentTransaction ft = fm.beginTransaction();
+//                                            fragment = new TaskDecimalNumberPercentageFragment();
+//                                            ft.addToBackStack(null);
+//                                            ft.replace(R.id.fragment_frame, fragment);
+//                                            ft.commit();
+//                                            return;
+//
+//                                        }
+//                                    } else {
 
                                             fragment = fm.findFragmentByTag("4");
                                             if (fragment == null) {
@@ -1558,9 +1592,9 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                                 ft.commit();
                                                 return;
 
-                                        }
+                                       // }
 
-                                    }
+                                   // }
                                 }
                                 else {
 
