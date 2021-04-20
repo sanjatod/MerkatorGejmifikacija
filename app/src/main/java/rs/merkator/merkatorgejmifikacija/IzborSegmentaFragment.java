@@ -24,7 +24,7 @@ import java.util.Date;
 
 public class IzborSegmentaFragment extends Fragment {
 
-    Button btnIdeAkademija, btnOpsteInformacije, btnHipermarket,btnRodaMega, btnSluzbaKadrovske,btnSluzbaRegistracije, btnHR;
+    Button btnIdeAkademija, btnOpsteInformacije, btnHipermarket,btnRodaMega,btnSluzbaRegistracije, btnHR;
     Button btnTradingManagment, btnMaloprodaja, btnSluzbaMarketing,btnSluzbaInvesticijeRazvoj, btnPodrucjeFinansija;
     Button btnLogistika, btnVeleprodaja, btnZmaj, btnLondon, btnBeogradjanka,btnEvaluacija, btnSektorIT, btnSektorPoslovnihProcesa;
     DataBaseHelper dbHelper;
@@ -73,9 +73,9 @@ public class IzborSegmentaFragment extends Fragment {
             btnRodaMega = view.findViewById(R.id.btnRodaMega);
             btnRodaMega.setClickable(false);
             btnRodaMega.setEnabled(false);
-            btnSluzbaKadrovske = view.findViewById(R.id.btnSluzbaKadrovske);
-            btnSluzbaKadrovske.setClickable(false);
-            btnSluzbaKadrovske.setEnabled(false);
+//            btnSluzbaKadrovske = view.findViewById(R.id.btnSluzbaKadrovske);
+//            btnSluzbaKadrovske.setClickable(false);
+//            btnSluzbaKadrovske.setEnabled(false);
             btnSluzbaRegistracije = view.findViewById(R.id.btnSluzbaRegistracije);
             btnSluzbaRegistracije.setClickable(false);
             btnSluzbaRegistracije.setEnabled(false);
@@ -139,53 +139,53 @@ public class IzborSegmentaFragment extends Fragment {
 
                         break;
 
+//                    case 3:
+//                        btnSluzbaKadrovske.setClickable(true);
+//                        btnSluzbaKadrovske.setEnabled(true);
+//                        btnSluzbaKadrovske.startAnimation(anim);
+//                        CustomButtonDay1(btnOpsteInformacije);
+//                        CustomButtonDay1(btnIdeAkademija);
+//                        CustomButtonDay1(btnSluzbaRegistracije);
+//                        CustomButtonDay1(btnSluzbaKadrovske);
+//                        btnSluzbaKadrovske.requestFocus();
+//
+//                        break;
+
                     case 3:
-                        btnSluzbaKadrovske.setClickable(true);
-                        btnSluzbaKadrovske.setEnabled(true);
-                        btnSluzbaKadrovske.startAnimation(anim);
-                        CustomButtonDay1(btnOpsteInformacije);
-                        CustomButtonDay1(btnIdeAkademija);
-                        CustomButtonDay1(btnSluzbaRegistracije);
-                        CustomButtonDay1(btnSluzbaKadrovske);
-                        btnSluzbaKadrovske.requestFocus();
-
-                        break;
-
-                    case 4:
                         btnHR.setClickable(true);
                         btnHR.setEnabled(true);
                         btnHR.startAnimation(anim);
                         CustomButtonDay1(btnOpsteInformacije);
                         CustomButtonDay1(btnIdeAkademija);
                         CustomButtonDay1(btnSluzbaRegistracije);
-                        CustomButtonDay1(btnSluzbaKadrovske);
+                        //CustomButtonDay1(btnSluzbaKadrovske);
                         CustomButtonDay1(btnHR);
                         btnHR.requestFocus();
 
                         break;
 
-                    case 5:
+                    case 4:
                         btnRodaMega.setClickable(true);
                         btnRodaMega.setEnabled(true);
                         btnRodaMega.startAnimation(anim);
                         CustomButtonDay1(btnOpsteInformacije);
                         CustomButtonDay1(btnIdeAkademija);
                         CustomButtonDay1(btnSluzbaRegistracije);
-                        CustomButtonDay1(btnSluzbaKadrovske);
+                        //CustomButtonDay1(btnSluzbaKadrovske);
                         CustomButtonDay1(btnHR);
                         CustomButtonDay1(btnRodaMega);
                         btnRodaMega.requestFocus();
 
                         break;
 
-                    case 6:
+                    case 5:
                         btnHipermarket.setClickable(true);
                         btnHipermarket.setEnabled(true);
                         btnHipermarket.startAnimation(anim);
                         CustomButtonDay1(btnOpsteInformacije);
                         CustomButtonDay1(btnIdeAkademija);
                         CustomButtonDay1(btnSluzbaRegistracije);
-                        CustomButtonDay1(btnSluzbaKadrovske);
+                        //CustomButtonDay1(btnSluzbaKadrovske);
                         CustomButtonDay1(btnHR);
                         CustomButtonDay1(btnRodaMega);
                         CustomButtonDay1(btnHipermarket);
@@ -223,13 +223,13 @@ public class IzborSegmentaFragment extends Fragment {
                 }
             });
 
-            btnSluzbaKadrovske.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    OpenFragment();
-                }
-            });
+//            btnSluzbaKadrovske.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                    OpenFragment();
+//                }
+ //           });
 
             btnHR.setOnClickListener(new View.OnClickListener() {
                 @Override

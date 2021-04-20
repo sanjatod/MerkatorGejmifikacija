@@ -214,9 +214,9 @@ public class SeventeenthFragment extends Fragment {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            if(d == 1 && dan.getRowid() == 76)
-            return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip31, parent, false));
-            else
+//            if(d == 1 && dan.getRowid() == 76)
+//            return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip31, parent, false));
+//            else
             return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.detalji_lista_pitanja_tip3, parent, false));
         }
         class ViewHolder extends RecyclerView.ViewHolder {

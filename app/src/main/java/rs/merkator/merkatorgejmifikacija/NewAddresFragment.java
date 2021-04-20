@@ -73,14 +73,14 @@ public class NewAddresFragment extends Fragment {
                 dbHelper.openDataBase();
                 ContentValues iuValues = new ContentValues();
                 iuValues.put("Zapocet", 2);
-                dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment=" + 5 + " AND  Dan=1", null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                dbHelper.myDataBase.updateWithOnConflict("AkcijaSegment", iuValues, "Segment=" + 4 + " AND  Dan=1", null, SQLiteDatabase.CONFLICT_ROLLBACK);
                 dbHelper.close();
 
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 Fragment fragment = fm.findFragmentByTag("IzborSegmenta");
                 if (fragment == null) {
                     FragmentTransaction ft = fm.beginTransaction();
-                    fragment = new IzborSegmentaFragment(1, 5);
+                    fragment = new IzborSegmentaFragment(1, 4);
                     ft.addToBackStack(null);
                     ft.replace(R.id.fragment_frame, fragment);
                     ft.commit();

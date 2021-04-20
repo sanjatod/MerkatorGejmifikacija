@@ -626,21 +626,21 @@ public class WelcomeFragment extends Fragment {
 
                     break;
 
+//                case 3:
+//                    txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Sektor\n  ORGANIZACIONOG DIZAJNA SLUŽBA PERSONALNE EVIDENCIJE");
+//
+//                    break;
+
                 case 3:
-                    txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n Sektor\n  ORGANIZACIONOG DIZAJNA SLUŽBA PERSONALNE EVIDENCIJE");
-
-                    break;
-
-                case 4:
                     txtWelcome.setText("DOBRO DOŠLI U MERCATOR S\n SEKTOR HR OPERACIJA");
 
                     break;
-                case 5:
+                case 4:
                     txtWelcome.setText("DOBRO DOŠLI U MERCATOR S\n RODA MEGA 428");
 
                     break;
 
-                case 6:
+                case 5:
                     txtWelcome.setText("DOBRODOŠLI U MERCATOR S\n \n Segment\n MALOPRODAJNI OBJEKAT - HIPERMARKET");
 
                     break;

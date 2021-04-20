@@ -671,50 +671,8 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                             break;
                         case 3:
-
-                                txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSlužba regrutacije i selekcije");
-                                new AlertDialog.Builder(mContext)
-                                        // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
-                                        .setView(dialogView1)
-                                        .setCancelable(false)
-                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int whichButton) {
-                                                dialog.dismiss();
-                                                ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
-
-                                                ZatvoriSegmentDan1();
-                                                NoviSegment();
-
-//                                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-//                                                PersonnelRecordsFragment w1 = new PersonnelRecordsFragment();
-//                                                ft1.replace(R.id.fragment_frame, w1);
-//                                                ft1.commit();
-//                                                fragment = fm.findFragmentByTag("PrviFragment");
-//                                                if (fragment == null) {
-//                                                    fm = getSupportFragmentManager();
-//                                                    FragmentTransaction ft = fm.beginTransaction();
-//                                                    fragment = new PersonnelRecordsFragment();
-//                                                    ft.addToBackStack(null);
-//                                                    ft.replace(R.id.fragment_frame, fragment);
-//                                                    ft.commit();
-//                                                    return;
-//
-//                                                }
-
-
-                                            }
-                                        })
-
-                                        .show();
-
-
-                            break;
-
-
-
-                        case 4:
                             if (puzzle==false) {
-                                txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor organizacionog dizajna služba personalne evidencije");
+                                txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSlužba regrutacije i selekcije");
                                 new AlertDialog.Builder(mContext)
 
                                         .setCancelable(false)
@@ -764,6 +722,22 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                         })
 
                                         .show();
+//                                new AlertDialog.Builder(mContext)
+//                                        // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
+//                                        .setView(dialogView1)
+//                                        .setCancelable(false)
+//                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                                dialog.dismiss();
+//                                                ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+//
+//                                                ZatvoriSegmentDan1();
+//                                                NoviSegment();
+//
+//                                            }
+//                                        })
+//
+//                                        .show();
                             }
                             else
                             {
@@ -771,10 +745,14 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                             }
 
 
+
                             break;
 
-                        case 5:
-                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor HR operacija-a");
+
+
+                        case 4:
+
+                                txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor HR operacija-a");
                             new AlertDialog.Builder(mContext)
                                     .setCancelable(false)
                                     .setView(dialogView1)
@@ -802,7 +780,36 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                             break;
 
-                        case 6:
+//                        case 5:
+//                            txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nSektor HR operacija-a");
+//                            new AlertDialog.Builder(mContext)
+//                                    .setCancelable(false)
+//                                    .setView(dialogView1)
+//                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                        public void onClick(DialogInterface dialog, int whichButton) {
+//
+//                                            ((ViewGroup) dialogView1.getParent()).removeView(dialogView1);
+//                                            dialog.dismiss();
+//
+//                                            fragment = fm.findFragmentByTag("NewAdress");
+//                                            if (fragment == null) {
+//                                                fm = getSupportFragmentManager();
+//                                                FragmentTransaction ft = fm.beginTransaction();
+//                                                fragment = new NewAddresFragment();
+//                                                ft.addToBackStack(null);
+//                                                ft.replace(R.id.fragment_frame, fragment);
+//                                                ft.commit();
+//
+//
+//                                            }
+//                                        }
+//                                    })
+//
+//                                    .show();
+//
+//                            break;
+
+                        case 5:
                             txtCestitamo.setText("Čestitamo, uspešno ste završili segment\nRoda Mega 428");
                             new AlertDialog.Builder(mContext)
                                     .setCancelable(false)
@@ -821,7 +828,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                             break;
 
-                        case 7:
+                        case 6:
                             // proverite da li je zavrsen Kodeks oblacenja
                             dbHelper.openDataBase();
                             String sql="Select Stanje from Kodeks";
@@ -933,7 +940,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 
                 fm = getSupportFragmentManager();
                 Cursor c;
-                String sql = "SELECT  rowid, RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment,TekstIspodPitanja FROM Dan2 where Segment=" + segment + " Order by CAST(RB as int)";
+                String sql = "SELECT  rowid , RB,TekstPitanja, Slika,TipOdgovora,TacanOdgovor,PonudjeniOdgovori, Odgovoreno, Segment,TekstIspodPitanja FROM Dan2 where Segment=" + segment + " Order by CAST(RB as int)";
                 dbHelper.openDataBase();
                 c = dbHelper.myDataBase.rawQuery(sql, null);
 

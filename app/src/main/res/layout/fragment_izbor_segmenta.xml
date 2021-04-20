@@ -19,7 +19,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOpsteInformacije"
-            android:layout_width="120dp"
+            android:layout_width="130dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -37,7 +37,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnIdeaAkademija"
-            android:layout_width="120dp"
+            android:layout_width="130dp"
             android:layout_height="100dp"
             android:text="Idea akademija"
             android:textSize="15sp"
@@ -51,7 +51,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSluzbaRegistracije"
-            android:layout_width="125dp"
+            android:layout_width="135dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -65,15 +65,16 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
             app:backgroundTint="@color/red" />
 
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSluzbaKadrovske"
-            android:layout_width="125dp"
+            android:id="@+id/btnSektorHR"
+            android:layout_width="135dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:gravity="left|center_vertical"
             android:textSize="15sp"
-            android:text="Sektor&#10;organizacionog&#10;dizajna"
+            android:text="Sektor HR&#10;operacija"
             android:layout_centerInParent="true"
             android:layout_toRightOf="@+id/btnSluzbaRegistracije"
             android:textAppearance="?textAppearanceHeadline1"
@@ -82,24 +83,8 @@
             app:backgroundTint="@color/red" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSektorHR"
-            android:layout_width="125dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:gravity="left|center_vertical"
-            android:textSize="15sp"
-            android:text="Sektor HR&#10;operacija"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@+id/btnSluzbaKadrovske"
-            android:textAppearance="?textAppearanceHeadline1"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
-            app:backgroundTint="@color/red" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRodaMega"
-            android:layout_width="125dp"
+            android:layout_width="135dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -115,7 +100,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnHipermarket"
-            android:layout_width="125dp"
+            android:layout_width="135dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"

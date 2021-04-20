@@ -207,7 +207,7 @@ public class FirstFragment extends Fragment {
                     }
                 }
 
-              res=true;
+              //res=true;
                     if (res)
                     {
 
@@ -280,40 +280,41 @@ public class FirstFragment extends Fragment {
                         }
                         else
                         {
-                            getActivity().onBackPressed();
-                        }
-                        if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("One assessment"))
-                        {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
+                            //getActivity().onBackPressed();
+                            if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("One assessment"))
+                            {
+                                Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
 
-                                @Override
-                                public void run() {
+                                    @Override
+                                    public void run() {
 
+                                        getActivity().onBackPressed();
+                                    }
+                                }, 1000);
+                            }
+                            else
+                            {
+                                if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("Fondacija Ane i Vlade Divac"))
+                                {
+                                    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+
+                                            getActivity().onBackPressed();
+                                        }
+                                    }, 1000);
+                                }
+                                else
+                                {
                                     getActivity().onBackPressed();
                                 }
-                            }, 1000);
+                            }
                         }
-                        else
-                        {
-                            getActivity().onBackPressed();
-                        }
-                        if (dan.getTacanOdgovor()!=null && dan.getTacanOdgovor().equals("Fondacija Ane i Vlade Divac"))
-                        {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
 
-                                @Override
-                                public void run() {
 
-                                    getActivity().onBackPressed();
-                                }
-                            }, 1000);
-                        }
-                        else
-                        {
-                            getActivity().onBackPressed();
-                        }
 
 
 

@@ -129,21 +129,21 @@ public class IzborDanaFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (!BaseActivity.retrieveDate(getActivity())) {
-                            return;
-                        }
-
-                        if (dan == 0  && danZavrsen!= 1) {
-                            new AlertDialog.Builder(getActivity())
-                                    .setTitle("Dan je zaključan!")
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int whichButton) {
-                                            dialog.dismiss();
-                                        }
-                                    })
-
-                                    .show();
-                        } else {
+//                        if (!BaseActivity.retrieveDate(getActivity())) {
+//                            return;
+//                        }
+//
+//                        if (dan == 0  && danZavrsen!= 1) {
+//                            new AlertDialog.Builder(getActivity())
+//                                    .setTitle("Dan je zaključan!")
+//                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                        public void onClick(DialogInterface dialog, int whichButton) {
+//                                            dialog.dismiss();
+//                                        }
+//                                    })
+//
+//                                    .show();
+//                        } else {
                             BaseActivity.storeDate(getActivity().getApplicationContext());
                             try {
                                 Date d = new Date();
@@ -177,7 +177,7 @@ public class IzborDanaFragment extends Fragment {
                             getActivity().onBackPressed();
 
                         }
-                   }
+                 //  }
                 });
 
         view.findViewById(R.id.imgTreciDan).setOnClickListener(
