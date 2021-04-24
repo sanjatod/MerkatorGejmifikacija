@@ -1575,20 +1575,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
 //                                    }
 //
 //                                }
-//                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0 ) {
-//                                    if (proc == false  &&  dan2.getRowid() == 127  ) {
-//                                        fragment = fm.findFragmentByTag("Zadatak");
-//                                        if (fragment == null) {
-//                                            fm = getSupportFragmentManager();
-//                                            FragmentTransaction ft = fm.beginTransaction();
-//                                            fragment = new TaskDecimalNumberPercentageFragment();
-//                                            ft.addToBackStack(null);
-//                                            ft.replace(R.id.fragment_frame, fragment);
-//                                            ft.commit();
-//                                            return;
-//
-//                                        }
-//                                    } else {
+                                if (dan2.getTipOdgovora() == 4 && dan2.getOdgovoreno() == 0 ) {
 
                                             fragment = fm.findFragmentByTag("4");
                                             if (fragment == null) {
@@ -1599,9 +1586,8 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                                                 ft.commit();
                                                 return;
 
-                                       // }
+                                        }
 
-                                   // }
                                 }
                                 else {
 
