@@ -36,32 +36,31 @@ android:background="@color/white"
         android:id="@+id/btnPodrucjePravnihPoslova"
         android:layout_width="120dp"
         android:layout_height="140dp"
-        android:layout_marginTop="5dp"
-        android:gravity="left|center_vertical"
-        android:textSize="15sp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/btnPodrucjeIT"
-        android:text="Sektor pravnih&#10;poslova"
+        android:gravity="left|center_vertical"
+        android:text="Sektor pravnih&#10;poslova i&#10;usaglašenosti&#10;poslovanja"
         android:textAppearance="?textAppearanceHeadline1"
+        android:textSize="15sp"
         android:theme="@style/Theme.MaterialComponents.Light"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
-        app:backgroundTint="@color/red" />
+        app:backgroundTint="@color/red"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton" />
 
 
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/btnLogistika"
-    android:layout_width="120dp"
-    android:layout_height="140dp"
-    android:text="Logistika"
-    android:layout_toRightOf="@+id/btnPodrucjePravnihPoslova"
-    android:textSize="15sp"
-    android:gravity="left|center_vertical"
-    android:textAppearance="?textAppearanceHeadline1"
-    android:layout_centerInParent="true"
-    android:theme="@style/Theme.MaterialComponents.Light"
-    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton"
-    app:backgroundTint="@color/red"
-    />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogistika"
+        android:layout_width="120dp"
+        android:layout_height="140dp"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/btnPodrucjePravnihPoslova"
+        android:gravity="left|center_vertical"
+        android:text="Logistika"
+        android:textAppearance="?textAppearanceHeadline1"
+        android:textSize="15sp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:backgroundTint="@color/red"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialButton" />
 
 
 <com.google.android.material.button.MaterialButton

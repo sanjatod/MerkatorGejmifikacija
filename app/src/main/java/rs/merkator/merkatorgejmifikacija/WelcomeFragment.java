@@ -199,21 +199,47 @@ public class WelcomeFragment extends Fragment {
 
                                             getActivity().onBackPressed();
 
-                                        } else {
+                                        }
+                                        else {
 
 
                                             if (dan == 1) {
+                                                try {
+
+                                                    dbHelper.openDataBase();
+                                                    ContentValues iuValues = new ContentValues();
+                                                    iuValues.put("Segment", segment + 1);
+                                                    iuValues.put("Dan", 1);
+                                                    iuValues.put("Zapocet", 1);
+                                                    dbHelper.myDataBase.insertOrThrow("AkcijaSegment", null, iuValues);
+                                                } catch (Exception ex) {
+                                                    new AlertDialog.Builder(getActivity())
+                                                            .setTitle("GRESKA!   " + ex.getMessage())
+                                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                                    dialog.dismiss();
+                                                                }
+                                                            })
+
+                                                            .show();
+                                                } finally {
+
+                                                    dbHelper.close();
+                                                }
+                                                BaseActivity.segment = +1;
+
+                                                getActivity().onBackPressed();
 
                                                 //FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                                                 //OrganizationalSchemeFragment w1 = new OrganizationalSchemeFragment(dan, segment);
                                                 //ft1.replace(R.id.fragment_frame, w1);
                                                 //ft1.commit();
 
-                                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                                                MoveFragment w1 = new MoveFragment(dan, segment);
-                                                ft1.replace(R.id.fragment_frame, w1);
-                                                ft1.commit();
-                                            }
+//                                                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+//                                                MoveFragment w1 = new MoveFragment(dan, segment);
+//                                                ft1.replace(R.id.fragment_frame, w1);
+//                                                ft1.commit();
+                                           }
                                         }
                                     }
                                 }

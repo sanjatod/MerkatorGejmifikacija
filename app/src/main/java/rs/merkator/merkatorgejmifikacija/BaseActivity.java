@@ -1742,7 +1742,7 @@ public class BaseActivity extends AppCompatActivity implements  NavigationView.O
                         break;
                     case 2:
 
-                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Pravnih poslova");
+                        txtCestitamo.setText("Čestitamo, uspešno ste završili segment Pravnih poslova i usaglašenosti poslovanja");
                         new AlertDialog.Builder(mContext)
                                 // .setTitle("Čestitamo, uspešno ste završili segment Opšte informacije")
                                 .setView(dialogView1)

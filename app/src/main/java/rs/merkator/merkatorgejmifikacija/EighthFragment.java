@@ -32,13 +32,13 @@ public class EighthFragment extends Fragment {
     TextView txtPitanja;
     Dan dan;
     DataBaseHelper dbHelper;
-    EditText et1,et2,et3,et4;
+    EditText et2,et4;
     ImageView imageViewSlikaNaPitanju;
     ViewGroup container;
     View view ;
     LinearLayout linearLayout ;
     int d,s;
-    ImageView iv1, iv2, iv3, iv4;
+    ImageView  iv2,  iv4;
 
     public EighthFragment(Dan dan, int d,int s)
 
@@ -65,19 +65,10 @@ public class EighthFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         txtPitanja = view.findViewById(R.id.txtTextPitanja);
-        et1 = view.findViewById(R.id.et1);
         et2 = view.findViewById(R.id.et2);
-        et3 = view.findViewById(R.id.et3);
         et4 = view.findViewById(R.id.et4);
-        iv1 = view.findViewById(R.id.iv1);
         Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/ideaorganic.png");
-        if (bmp!=null) {
-            iv1.setImageBitmap(bmp);
-        }
-        else
-        {
-            iv1.setVisibility(View.GONE);
-        }
+
         iv2 = view.findViewById(R.id.iv2);
          bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/idea logo.jpg");
         if (bmp!=null) {
@@ -87,15 +78,9 @@ public class EighthFragment extends Fragment {
         {
             iv2.setVisibility(View.GONE);
         }
-        iv3 = view.findViewById(R.id.iv3);
+        //iv3 = view.findViewById(R.id.iv3);
         bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/Picture3.jpg");
-        if (bmp!=null) {
-            iv3.setImageBitmap(bmp);
-        }
-        else
-        {
-            iv3.setVisibility(View.GONE);
-        }
+
         iv4 = view.findViewById(R.id.iv4);
         bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/roda-2 logo.png");
         if (bmp!=null) {
@@ -112,30 +97,43 @@ public class EighthFragment extends Fragment {
             {
 
 
+                            if (!et2.getText().toString().equals("292")&&!et4.getText().toString().equals("33"))
+                            {
+
+                                new AlertDialog.Builder(getActivity())
+                                        .setTitle("Odgovor nije tačan!")
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                dialog.dismiss();
+                                            }
+                                        })
+
+                                        .show();
 
 
-                    try {
-                        dbHelper.openDataBase();
-                        ContentValues iuValues = new ContentValues();
-                        iuValues.put("Odgovoreno", "1");
-                        if (d==1)
-                            dbHelper.myDataBase.updateWithOnConflict("Dan1", iuValues, "rowid=" + dan.getRowid(), null, SQLiteDatabase.CONFLICT_ROLLBACK);
-                        if (d==2)
-                            dbHelper.myDataBase.updateWithOnConflict("Dan2", iuValues, "rowid=" + dan.getRowid(), null, SQLiteDatabase.CONFLICT_ROLLBACK);
-                        if (d==3)
-                            dbHelper.myDataBase.updateWithOnConflict("Dan3", iuValues, "rowid=" + dan.getRowid(), null, SQLiteDatabase.CONFLICT_ROLLBACK);
-                    }
-                    catch (SQLiteException ex)
-                    {
-                        String s="";
-                    }
-                    finally {
+                            }
+                            else {
 
-                        dbHelper.close();
-                    }
+                                try {
+                                    dbHelper.openDataBase();
+                                    ContentValues iuValues = new ContentValues();
+                                    iuValues.put("Odgovoreno", "1");
+                                    if (d == 1)
+                                        dbHelper.myDataBase.updateWithOnConflict("Dan1", iuValues, "rowid=" + dan.getRowid(), null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                                    if (d == 2)
+                                        dbHelper.myDataBase.updateWithOnConflict("Dan2", iuValues, "rowid=" + dan.getRowid(), null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                                    if (d == 3)
+                                        dbHelper.myDataBase.updateWithOnConflict("Dan3", iuValues, "rowid=" + dan.getRowid(), null, SQLiteDatabase.CONFLICT_ROLLBACK);
+                                } catch (SQLiteException ex) {
+                                    String s = "";
+                                } finally {
+
+                                    dbHelper.close();
+                                }
 
 
-                    getActivity().onBackPressed();
+                                getActivity().onBackPressed();
+                            }
 
 
 

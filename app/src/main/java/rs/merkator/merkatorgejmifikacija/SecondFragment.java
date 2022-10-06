@@ -82,12 +82,12 @@ public class SecondFragment extends Fragment {
             }
             else
             {
-                imageViewSlikaNaPitanju.setVisibility(View.GONE);
+                imageViewSlikaNaPitanju.setVisibility(View.INVISIBLE);
             }
         }
         else
         {
-            imageViewSlikaNaPitanju.setVisibility(View.GONE);
+            imageViewSlikaNaPitanju.setVisibility(View.INVISIBLE);
         }
         txtPitanja = view.findViewById(R.id.txtTextPitanja);
         txtPitanja.setText(dan.getTekstPitanja());

@@ -73,7 +73,7 @@ public class ManDressCodeFragment extends Fragment {
 
 
                         if (!cb1.isChecked()&&!cb2.isChecked()&&!cb3.isChecked()&&cb4.isChecked()
-                                &&cb5.isChecked()&&!cb6.isChecked()&&!cb7.isChecked())
+                                &&cb5.isChecked()&&cb6.isChecked()&&!cb7.isChecked())
                         {
                             dbHelper.openDataBase();
                             ContentValues iuValues = new ContentValues();

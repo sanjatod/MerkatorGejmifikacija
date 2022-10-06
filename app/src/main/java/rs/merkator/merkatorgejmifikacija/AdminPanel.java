@@ -267,8 +267,8 @@ public class AdminPanel extends AppCompatActivity {
                     }
                 });
 
-//
-//                //eksport
+////
+                //eksport
 //                String directory_path = Environment.getExternalStorageDirectory() + File.separator + "Download/Gejmifikacija/Import";
 //                File file = new File(directory_path);
 //                if (!file.exists()) {
@@ -304,7 +304,7 @@ public class AdminPanel extends AppCompatActivity {
 //
 //                    }
 //                });
-
+//
 
            }
        });
